@@ -1,0 +1,174 @@
+\chapter{Hermite Function and $L^2$ Theory}
+In this chapter we will extend the defination of Fourier transform to $L^2(\mathbb{R}^n)$ space by using Hermite functions and finally prove Hardy's theorem.
+\section{Hermite function and $L^2$ theory}
+\begin{dfn}
+ For $k = 0, 1, 2, \cdots$ and $x \in \mathbb{R}$ the Hermite polynomials are defined by the equation
+\begin{eqnarray}
+ H_k(x)=(-1)^ke^{x^2}\frac{d^k}{dx^k}\left(e^{-x^2}\right).
+\end{eqnarray}
+Notice that each $H_k(x)$ is a polynomial of degree $k$.
+\end{dfn}
+\begin{lem}
+The Hermite polynomials can be expressed by the generating function
+\begin{eqnarray}
+ e^{2xw-w^2}=\sum_{k=0}^\infty \frac{H_k(x)}{k!}w^k,
+\end{eqnarray}
+valid for $|w|<1$.
+\end{lem}
+\begin{proof}
+ We will prove this result by Taylor series expansion to the function $f(w) = e^{2xw-w^2}$ about $w=0$ and making use of the definition of $H_k(x).$
+\begin{eqnarray*} \text{Consider} ,\;\;\;\;
+f(w) & = & f(0)+w\frac{\partial f}{\partial w}\bigg |_{w=0}+\frac{w^2}{2!}\frac{\partial^2 f}{\partial w^2}\bigg |_{w=0}+\cdots\\
+  & = & \sum_{k=0}^\infty\left[\frac{\partial^k}{\partial w^k}\left(e^{2wx-w^2}\right)\right]_{w=0}\frac{w^k}{k!}\\
+  & = & \sum_{k=0}^\infty\left[\frac{\partial^k}{\partial w^k}\left(e^{-(x-w)^2}\right)\right]_{w=0}e^{x^2}\frac{w^k}{k!}\\
+  & = & \sum_{k=0}^\infty\left[(-1)^k\frac{\partial^k}{\partial x^k}\left(e^{-(x-w)^2}\right)\right]_{w=0}e^{x^2}\frac{w^k}{k!}\\
+  & = & \sum_{k=0}^\infty\left[(-1)^ke^{x^2}\frac{d^k}{dx^k}\left(e^{-x^2}\right)\right]\frac{w^k}{k!}\\
+  & = & \sum_{k=0}^\infty\frac{H_k(x)}{k!}w^{k}.
+\end{eqnarray*}
+\end{proof}
+\subsection{Properties of Hermite polynomials}
+ For $k\geq1$
+\begin{enumerate}
+ \item $H'_k(x)=2kH_{k-1}(x)$,
+ \item $H_{k+1}(x)=2xH_k(x)-2kH_{k-1}(x)$,
+ \item $H_{k}(x)=2xH_{k-1}(x)-H'_{k-1}(x)$.
+\end{enumerate}
+\begin{proof}
+ $1.$     We know from generating function
+\begin{eqnarray}
+\sum_{k=0}^\infty\frac{H_k(x)}{k!}w^{k}=e^{2xw-w^2}.
+\end{eqnarray}
+Differentiating both sides with respect to $x$ we have,
+\begin{eqnarray*}
+\sum_{k=0}^\infty\frac{H'_{k}(x)}{k!}w^{k} & = & 2we^{2xw-w^2}\\
+& = & 2\sum_{k=0}^\infty\frac{H_{k}(x)}{k!}w^{k+1}\\
+& = & 2\sum_{k=1}^\infty\frac{H_{k-1}(x)}{(k-1)!}w^{k}.
+\end{eqnarray*}
+Since $H'_{0}(x)=0$ from above relation we have,
+$$\frac{H'_k(x)}{k!}=2\frac{H_{k-1}(x)}{(k-1)!}.$$
+ So\;\;\;$H'_{k}(x)=2kH_{k-1}(x).$\\
+$2.$\;\;\;Differentiating $(3.3)$ both sides with respect to $w$ we have,
+\begin{eqnarray*}
+ \sum_{k=0}^\infty\frac{H_{k}(x)}{(k-1)!}w^{k-1}& = & (2x-2w)e^{2xw-w^2}\\
+& = & (2x-2w)\sum_{k=0}^\infty\frac{H_k(x)}{k!}w^{k}\\
+& = & 2x\sum_{k=0}^\infty\frac{H_k(x)}{k!}w^{k}-2\sum_{k=0}^\infty\frac{H_k(x)}{k!}w^{k+1}.
+\end{eqnarray*}
+Compairing coefficient of $w^{k}$ from both sides of the above relation we have,
+$$\frac{H_{k+1}(x)}{k!}=2x\frac{H_{k}(x)}{k!}-2\frac{H_{k-1}(x)}{(k-1)!}.$$
+ So\;\;\;$H_{k+1}(x)=2xH_{k}(x)-2kH_{k-1}(x).$\\
+$3.$ Using the relations $(2)$ and $(3)$ we have,
+$$H_{k+1}(x)+H'_{k}(x)=2xH_{k}(x).$$
+Replacing $k$ by $(k-1)$ we have,
+$$H_{k}(x)+H'_{k-1}(x)=2xH_{k-1}(x).$$
+\end{proof}
+\subsection{Hermite functions}
+\begin{dfn}
+ Define the Hermite functions $\tilde{h}_{k}(x)$ by
+\begin{eqnarray}
+ \tilde{h}_{k}(x)=H_{k}(x)e^{-x^2/2}.
+\end{eqnarray}
+\end{dfn}
+Now we provide some of the important properties of Hermite functions which we will be using frequently.
+\begin{lem}
+ For the Hermite functions satisfies the following relations:
+\begin{enumerate}
+ \item $\left[-\frac{d}{dx}+x\right]\tilde{h}_{k}(x)=\tilde{h}_{k+1}(x)$,
+ \item $\left[\frac{d}{dx}+x\right]\tilde{h}_{k}(x)=2k\tilde{h}_{k-1}(x)$,
+ \item $\tilde{h}_{k+1}(x)+2k\tilde{h}_{k-1}(x)=2x\tilde{h}_{k}(x)$.
+ \end{enumerate}
+ \end{lem}
+\begin{proof}
+ $1.$ Consider,
+\begin{eqnarray*}
+ \left[-\frac{d}{dx}+x\right]\tilde{h}_{k}(x)& = & -\frac{d}{dx}\left[H_{k}(x)e^{-x^2/2}\right]+xH_{k}(x)e^{-x^2/2}\\
+& = & -\left[H'_{k}(x)e^{-x^2/2}-xH_{k}(x)e^{-x^2/2}\right]+xH_{k}(x)e^{-x^2/2}\\
+& = & -H'_{k}(x)e^{-x^2/2}+2xH_{k}(x)e^{-x^2/2}\\
+& = &  \left[-H'_{k}(x)+2xH_{k}(x)\right]e^{-x^2/2}.
+\end{eqnarray*}
+Now using the relation (3) from result $(3.1.3)$ we have,
+\begin{eqnarray*}
+\left[-\frac{d}{dx}+x\right]\tilde{h}_{k}(x)& = & H_{k+1}(x)e^{-x^2/2}\\
+& = & \tilde{h}_{k+1}(x).
+\end{eqnarray*}
+$2.$ Consider,
+\begin{eqnarray*}
+ \left[\frac{d}{dx}+x\right]\tilde{h}_{k}(x)& = & \frac{d}{dx}\left[H_{k}(x)e^{-x^2/2}\right]+xH_{k}(x)e^{-x^2/2}\\
+& = & \left[H'_{k}(x)e^{-x^2/2}-xH_{k}(x)e^{-x^2/2}\right]+xH_{k}(x)e^{-x^2/2}\\
+& = & H'_{k}(x)e^{-x^2/2}.
+\end{eqnarray*}
+Now using the relation (1) from result $(3.1.3)$ we have,
+\begin{eqnarray*}
+\left[\frac{d}{dx}+x\right]\tilde{h}_{k}(x)& = & 2kH_{k-1}(x)e^{-x^2/2}\\
+& = & 2k\tilde{h}_{k-1}(x).
+\end{eqnarray*}
+$3.$ Using the relations $(1)$ and $(2)$ we have,\\
+$\tilde{h}_{k+1}(x)+2k\tilde{h}_{k-1}(x)=2x\tilde{h}_{k}(x).$
+\end{proof}
+\begin{remark}
+ The operator $A=-\frac{d}{dx}+x$ and its adjoint $A^*=\frac{d}{dx}+x$ are very important in Quantum mechanics where they are known as
+the creation and annihilation operators respectively. The simple harmonic oscillator hamiltonian $H=-\frac{d^2}{dx^2}+x^2$ can be written as
+$H = \frac{1}{2}(AA^*+A^*A)$. The operator $H$ is called as Hermite operator.
+\end{remark}
+\begin{lem}
+ The Hermite functions $\tilde{h}_{k}(x)$ are the eigenfunctions of the Hermite operator $H$.
+\end{lem}
+\begin{proof}Consider,
+\begin{eqnarray*}
+\left[-\frac{d^2}{dx^2}+x^2\right]\tilde{h}_{k}(x)& = & H(\tilde{h}_{k})\\
+& = & \left[\frac{1}{2}(AA^*+A^*A)\right](\tilde{h}_{k})\\
+& = & \frac{1}{2}[AA^*(\tilde{h}_{k})+A^*A(\tilde{h}_{k})].
+ \end{eqnarray*}
+Now using the relations $(1)$ and $(2)$ from lemma $(3.1.5)$ we have,\\
+\begin{eqnarray*}
+  H(\tilde{h}_{k})& = & \frac{1}{2}\left[A(2k\tilde{h}_{k-1})+A^*(\tilde{h}_{k+1})\right]\\
+& = & \frac{1}{2}\left[2k\tilde{h}_{k}+2(k+1)\tilde{h}_{k}\right]\\
+& = & (2k+1)\tilde{h}_{k}.
+\end{eqnarray*}
+Hence, $\tilde{h}_{k}$ are eigenfunctions of the operator $H$.
+\end{proof}
+\begin{res}
+ The Hermite Operator $H$ is self-adjoint.
+\end{res}
+\begin{proof}
+ Since the Hermite operator H can be expressed in terms of annihilation and creation operator. i.e, $H = \frac{1}{2}(AA^*+A^*A)$, then the result follows.
+\end{proof}
+\begin{prop}(Mehler's formula)
+ For $w\in\mathbb{C},|w|<1$ and x, y $\in \mathbb{R},$\\
+$$\displaystyle{\sum_{k=0}^\infty\frac{\tilde{h}_{k}(x)\tilde{h}_{k}(y)}{2^{k}k!}w^{k} =(1-w^{2})^{-\frac{1}{2}}e^{-\frac{1}{2}\frac{1+w^2}{1-w^2}(x^2+y^2)+\frac{2w}{1-w^2}xy}}.$$
+\end{prop}
+\begin{proof}
+ We already know that $\hat{\varphi}=\varphi$, where $\varphi$ is the Gaussian on $\mathbb{R},$ which gives us the formula\\
+$$e^{-x^2} =\pi^{-\frac{1}{2}}\int{e^{-u^2+2ixu}du.}$$
+Now from the definition of $\tilde{h}_{k}(x)$ we obtain\\
+\begin{eqnarray*}
+ \tilde{h}_{k}(x)& = & H_{k}(x)e^{-\frac{x^2}{2}}\\
+& = & \pi^{-\frac{1}{2}}(-1)^ke^{x^2}\frac{d^k}{dx^k}\left[\int{e^{-u^2+2ixu}du}\right]e^{-\frac{x^2}{2}}\\
+& = & \pi^{-\frac{1}{2}}(-1)^ke^{\frac{x^2}{2}}\int{e^{-u^2+2ixu}(2iu)^k du}\\
+& = & \pi^{-\frac{1}{2}}(-2i)^ke^{\frac{x^2}{2}}\int{u^ke^{-u^2+2ixu}du}.
+\end{eqnarray*}
+Therefore,
+\begin{eqnarray*}
+&&\displaystyle{\sum_{k=0}^\infty\frac{\tilde{h}_{k}(x)\tilde{h}_{k}(y)}{2^{k}k!}w^{k}}\\& = &\displaystyle{\sum_{k=0}^\infty\frac{1}{2^{k}k!}\left[\pi^{-\frac{1}{2}}(-2i)^ke^{\frac{x^2}{2}}\int{u^ke^{-u^2+2ixu}du}\right]\left[\pi^{-\frac{1}{2}}(-2i)^ke^{\frac{y^2}{2}}\int{v^ke^{-v^2+2ixv}dv}\right]w^k}\\
+& = & \pi^{-1}e^{\frac{x^2+y^2}{2}}\displaystyle{\sum_{k=0}^\infty\iint{\frac{(-2uvw)^{k}}{k!}e^{-u^2-v^2+2ixu+2iyv}du\;dv}}\\
+& = & \pi^{-1}e^{\frac{x^2+y^2}{2}}\iint{e^{-2uvw}.e^{-u^2-v^2+2ixu+2iyv}du\;dv}\\
+& = & \pi^{-1}e^{\frac{x^2+y^2}{2}}\int{e^{-u^2+2ixu}\left[\int{e^{-(v^2-2iyv+2uvw)}dv}\right]du}\\
+& = & \pi^{-1}e^{\frac{x^2+y^2}{2}}\int{e^{-u^2+2ixu}\left[\int{e^{-[v-(iy-uw)]^2}.e^{(iy-uw)^2}dv}\right]du}\\
+& = & \pi^{-1}\pi^{\frac{1}{2}}e^{\frac{x^2+y^2}{2}}\int{e^{-u^2+2ixu}.e^{-y^2-2iyuw+w^2u^2}du}\\
+& = & \pi^{-\frac{1}{2}}e^{\frac{x^2-y^2}{2}}\int{e^{-{(1-w^2)u^2}+2i(x-yw)u}du}\\
+& = & \pi^{-\frac{1}{2}}e^{\frac{x^2-y^2}{2}}\int{e^{-(1-w^2)[u-\frac{i(x-yw)}{1-w^2}]^2}.e^{\frac{(i(x-yw))^2}{1-w^2}}du}\\
+& = & \pi^{-\frac{1}{2}}e^{\frac{x^2-y^2}{2}}\sqrt{\frac{\pi}{1-w^2}}.e^{-\frac{(x-yw)^2}{1-w^2}}\\
+& = & (1-w^2)^{-\frac{1}{2}}e^{-\frac{1}{2}\frac{1+w^2}{1-w^2}(x^2+y^2)+\frac{2w}{1-w^2}xy}.
+\end{eqnarray*}
+\end{proof}
+ If we set $x = y$ in Mehler's formula we get\\
+$$\displaystyle{\sum_{k=0}^\infty\frac{(\tilde{h}_{k}(x))^2}{2^{k}k!}w^{k}} =(1-w^2)^{-\frac{1}{2}}e^{-\frac{1-w}{1+w}x^2}.$$
+which on integration yields\\
+\begin{eqnarray*}
+\displaystyle{\sum_{k=0}^\infty\left[\int{(\tilde{h}_{k}(x))^2dx}\right]\frac{w^k}{2^kk!}}& = &(1-w^2)^{-\frac{1}{2}}\sqrt{\frac{\pi(1+w)}{(1-w)}}\\
+& = &\sqrt{\pi}(1-w)^{-1}.
+\end{eqnarray*}
+Expanding $(1-w)^{-1}$ in powers of $w$ and equating co-efficient of $w^k$ on both sides we get\\
+$$\int{(\tilde{h}_{k}(x))^2dx} =2^kk!\sqrt{\pi}.$$
+By normalising $\tilde{h}_{k}(x)$ by defining\\
+$$h_{k}(x)=(2^kk!\sqrt{\pi})^{-\frac{1}{2}}\tilde{h}_{k}(x).$$
+We will show that the family $\{h_{k}(x):k\in\mathbb{N}\}$ is an orthonormal system in $L^2({\mathbb{R}})$ in the following theorem.

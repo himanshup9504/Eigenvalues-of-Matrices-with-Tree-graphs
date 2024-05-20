@@ -1,0 +1,24 @@
+\chapter{Sinusoidal Trajectories}
+\begin{dfn}
+	A sinusoidal trajectory for our equation satisfies $\ddot{x}_i = -x_i$ and $x_i \not\equiv 0$ ("not the constant function with the value zero") for some $i$.
+\end{dfn}
+\begin{dfn}
+	A Im-coloring is a scheme for coloring all nodes of $SD(A)$ which has no $k$-cycle, $k > 2$, black or white, so that:
+	\begin{enumerate}
+		\item no black node is a neighbor of exactly one white node;
+		\item each maximal white block as a subgraph contains at least one negative $2$-cycle and is not $\lambda$-consistent.
+	\end{enumerate}
+\end{dfn}
+\section{Sinusoidal Trajectories and Im-coloring}
+\begin{thm}
+		Suppose $A$ is an irreducible matrix of order $> 2$, and $SD(A)$ has no $k$-cycles, $k > 2$. If there exists a sinusoidal trajectory for $\dot{x} = \tilde{A}x$, $x \neq 0$, for some $A \in Q(A)$ then $SD(A)$ admits an Im-coloring with at least one white node.
+\end{thm}
+\begin{proof}
+	If  $\dot{x} = \tilde{A}x$ is a sinusoidal trajectory (x$\equiv$0), color node i white if $x_{i}\equiv0$; otherwise color node i black. Theorem 3.1.5 together with a line of reasoning parallel to that in the first part of the proof of theorem 4.2.3; it becomes evident that such a coloring constitutes a nontrivial Im-coloring. 
+\end{proof}
+\begin{thm}
+	Suppose $A$ is irreducible and $SD(A)$ contains no $k$-cycle, $k > 2$. Then $\iota$ is an eigenvalue in at least two Jordan blocks of some $A \in Q(A)$ if and only if $SD(A)$ admits an Im-coloring for which $B(A)$ is branched at a black node.
+\end{thm}
+\begin{proof}
+	The proof is completely similar to the proof of Theorem 4.2.6(using Theorem 5.1.1)and is omitted.
+\end{proof}

@@ -1,0 +1,126 @@
+\chapter{Plancherel Theorem and $L^2$ theory}
+%\chapter{Introduction}
+%\section{The $L^2$ Theory and the Plancherel Theorem}
+We know that the space $ L^1(\mathbb{R}^{n})\cap
+L^2(\mathbb{R}^{n})$ is dense in  $L^2(\mathbb{R}^{n})$. Here we extend the Fourier transform from the former space to latter.
+One of the nice properties of this extension is that it turns out to
+be a unitary linear transformation. \section{Plancherel Theorem and
+$L^2$ theory}
+\begin{thm}
+ If $f \in L^1(\mathbb{R}^{n})\cap  L^2(\mathbb{R}^{n})$ then ${\Vert \hat{f} \Vert}_{2} = {\Vert f \Vert}_{2}.$
+\end{thm}
+\begin{proof}
+ Let  $g(x) = \overline{f(-x)}$. Then by theorem (1.1.7), $h = f*g \in L^1(\mathbb{R}^{n})$ and by theorem (1.1.9), we have $\hat{h} = \hat{f}\hat{g}$.
+But $\hat{g} = \bar{\hat{f}}$ and we have $\hat{h} = |\hat{f}|^2$. Now,\\
+\begin{eqnarray*}
+ {\Vert f \Vert}_{2}& = &\displaystyle{\int_{\mathbb{R}^{n}}{|f|^2\;dx}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{f(x)\overline{f(x)}\;dx}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{f(x)g(0 - x)\;dx}}\\
+& = &h(0).
+\end{eqnarray*}
+\begin{eqnarray*}\text{Again,}\;\;
+h(0)& = &\displaystyle{\lim_{\varepsilon\;\rightarrow\;0}{h*\varphi_{\varepsilon}(x)}}\;\;\;\text{[By\;\;theorem\;\;(1.1.26)]}\\
+& = &\displaystyle{\lim_{\varepsilon\;\rightarrow\;0}{\displaystyle{\int_{\mathbb{R}^{n}}{\hat{h}(x)e^{2\pi it.x}\Phi(\varepsilon x)\;dx}}}}\;\;\;\text{[By\;\;theorem\;\;(1.1.24)]}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{\hat{h}(x)e^{2\pi it.x}\;dx}}\;\;\;\text{[By\;\;Lebesgue\;dominated\;convergence\;theorem]}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{\hat{h}(x)\;dx}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{|\hat{f}|^2\;dx}}\\
+& = &{\Vert \hat{f} \Vert}_{2}.
+\end{eqnarray*}
+So ${\Vert f \Vert}_{2} = {\Vert \hat{f} \Vert}_{2}$ for $f \in L^1(\mathbb{R}^{n})\cap  L^2(\mathbb{R}^{n}).$
+\end{proof}
+\begin{dfn}
+ This theorem indicates that the Fourier tranform is a bounded linear operator defined on the dense subset $ L^1(\mathbb{R}^{n})\cap  L^2(\mathbb{R}^{n})$ of $L^2(\mathbb{R}^{n})$.
+Infact it is an isometry. Therefore there exists a unique bounded extension,
+ $\mathscr{F}$ on the whole space $L^2(\mathbb{R}^{n}).$ Then $\mathscr{F}$ will be called the Fourier transform on $L^2(\mathbb{R}^n)$; we will use the notation $\hat{f} = \mathscr{F}f.$
+\end{dfn}
+\begin{remark}
+ If $f \in L^2(\mathbb{R}^{n})$, we can define the Fourier transform of $f$ as follows:\\
+Let $\{h_{k}(x)\} \subset L^1(\mathbb{R}^{n})\cap  L^2(\mathbb{R}^{n})$ such that
+$$h_{k}(x) =
+\left\{ \begin{array}{rcl}
+f(t)\;\;\;,\;\;\;|t|\leq k \\0\;\mbox{otherwise}.\;\end{array}\right.
+$$ Then $h_{k}(x) \rightarrow f$ in $L^2(\mathbb{R}^{n})$-norm. Now
+define $$\hat{f}(x) = \mathscr{F}f(t) = \displaystyle{\lim_{k
+\rightarrow \infty}{\hat{h}_{k}(x)}} = \displaystyle{\lim_{k
+\rightarrow \infty}{\int_{|t| \leq k}{f(t)e^{-2\pi ix.t}\;dt}}}.$$
+\end{remark}
+\begin{dfn}
+ A linear operator on $L^2(\mathbb{R}^{n})$ that is an isometry and maps onto $L^2(\mathbb{R}^{n})$ is called a unitary operator.
+\end{dfn}
+\begin{thm}
+(a)   The Fourier transform is a unitary operator on $L^2(\mathbb{R}^{n})$.
+(b)   The inverse of the Fourier transform $\mathscr{F}^{-1}$, can be obtained by letting $(\mathscr{F}^{-1}g)(x) = (\mathscr{F}\hat{g})(-x)$ for all $g \in L^2(\mathbb{R}^{n})$.
+\end{thm}
+\begin{proof}
+ (a)  For showing $\mathscr{F}$ is an unitary operator on $L^2(\mathbb{R}^{n})$ we will show $\mathscr{F}$ is an isometry and onto. Fourier transform is an isometry
+follows from the theorem (2.1.1).
+Now we will show  $\mathscr{F}$ is onto. Since  $\mathscr{F}$ is an isometry then its range  $\mathscr{F}(L^2(\mathbb{R}^{n}))$ say, $M$ is a closed subspace of $L^2(\mathbb{R}^{n})$.
+For ontoness
+it is enough to show $L^2(\mathbb{R}^{n}) = M$. We will prove it by contradiction.
+Suppose $L^2(\mathbb{R}^{n}) \neq M $. Then $L^2(\mathbb{R}^{n}) = M \oplus M^{\perp}$ and we could find a function $g \in M^{\perp}$ such that
+$\langle \hat{f},g \rangle = 0,\; \forall f \in M$. This implies $\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)g(x)\;dx}} = 0$ with ${\Vert g \Vert}_{2} \neq 0$.
+Now by theorem (1.1.8) we have $\displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)\hat{g}(x)\;dx}} = 0,\;\;\forall f \in L^2(\mathbb{R}^{n}) $. In particular, $f = \bar{\hat{g}}$.
+Then we have $\displaystyle{\int_{\mathbb{R}^{n}}{|\hat{g}(x)|^2\;dx}} = 0$. This implies $\hat{g}(x) = 0$ for
+almost every $x$, contradicting the fact that ${\Vert g \Vert}_{2} = {\Vert \hat{g} \Vert}_{2} \neq 0$. Therefore $L^2(\mathbb{R}^{n}) = M$.\\
+(b)\;\;\;\;Since $\mathscr{F}$ is an unitary operator, then it preserves the inner product: $\langle u,v \rangle = \int_{\mathbb{R}^{n}}{u\bar{v}\;dx}$.
+Let $g$ be any function in $L^1(\mathbb{R}^{n}) \cap L^2(\mathbb{R}^{n})$ and $f \in L^2(\mathbb{R}^{n})$.
+Since $\hat{f} \in L^2(\mathbb{R}^{n})$ then $\hat{f}_{B(0,k)} \in L^1(\mathbb{R}^{n}) \cap L^2(\mathbb{R}^{n})$ for each $k$. Hence,\\
+$$f_{k}(t) = {\int_{|x| \leq k}{\hat{f}(x)e^{2\pi it.x}\;dx}} = \mathscr{F}(\hat{f}_{B(0,k)})(-t) \in L^2(\mathbb{R}^n)$$
+converges to the function $\tilde{f} = \mathscr{F}(\hat{f})(-t) \in L^2(\mathbb{R}^n)$.
+For letting $\tilde{f} = {\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}\;dx}} = \displaystyle{\lim_{k \rightarrow \infty}{f_{k}(t),}}$ we have\begin{eqnarray*}
+\langle g,\tilde{f} \rangle& = &\displaystyle{\lim_{k \rightarrow \infty}{\langle g,f_{k} \rangle}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{\mathbb{R}^{n}}}{{g(t)\bar{f}_{k}(t)\;dt}}}}}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{\mathbb{R}^{n}}}{{g(t)\overline{\left({\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}\;dx}}\right)}\;dt}}}}}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{\mathbb{R}^{n}}}{{g(t){\left({\int_{|x| \leq k}{\overline{\hat{f}(x)}e^{-2\pi it.x}\;dx}}\right)}\;dt}}}}}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{|x| \leq k}}{{\overline{\hat{f}(x)}{\left({\int_{\mathbb{R}^{n}}{g(t)e^{-2\pi it.x}\;dt}}\right)}\;dx}}}}}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{|x| \leq k}}{{\overline{\hat{f}(x)}\hat{g}(x)\;dx}}}}}}\\
+& = &\langle \hat{g},\hat{f} \rangle\\
+& = &\langle \mathscr{F}g,\mathscr{F}f \rangle\\
+& = &\langle g,f \rangle.
+\end{eqnarray*}
+Thus, we have $\tilde{f} = f$ which implies that  $(\mathscr{F}^{-1}f)(x) = (\mathscr{F}\hat{f})(-x)$.
+\end{proof}
+ Since we have defined the Fourier transform for functions in $L^1(\mathbb{R}^{n})$ and functions in $L^2(\mathbb{R}^{n})$
+we can define it on the class $L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$
+consisting of all the functions $f = f_{1} + f_{2}$ with $f_{1} \in L^1(\mathbb{R}^{n})$
+and $f_{2} \in L^2(\mathbb{R}^{n})$. We do this by letting $(f_{1} + f_{2}\hat{)~} = \hat{f}_{1} + \hat{f}_{2}$.
+If $g_{1} + g_{2} = f_{1} + f_{2}$ with $g_{i} \in L^i(\mathbb{R}^{n}), i = 1,2,$ then $g_{1} - f_{1} = f_{2} - g_{2} \in L^1(\mathbb{R}^n) \cap L^2(\mathbb{R}^n)$.
+Since the two definitions of the Fourier transform
+coincide on $L^1(\mathbb{R}^n) \cap L^2(\mathbb{R}^n)$ we have $\hat{g}_{1} - \hat{f}_{1} = \hat{f}_{2} - \hat{g}_{2}$.
+Thus $\hat{f}_{1} + \hat{f}_{2} = \hat{g}_{1} + \hat{g}_{2}$. This shows that the Fourier transform is
+well-defined on $L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$. Using the above argument we can extend the definition of Fourier transform to $L^p(\mathbb{R}^{n})$ for $1 < p <2$.
+We will show that $L^p(\mathbb{R}^{n}) \subseteq L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$.
+\begin{res}
+ $L^p(\mathbb{R}^{n}) \subseteq L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$ for $1 < p \leq 2$.
+\end{res}
+\begin{proof}
+ Any $f \in L^p(\mathbb{R}^{n})$ can be written as $f_{1} + f_{2}$ where, $f_{1} \in L^1(\mathbb{R}^{n})$ and $f_{2} \in L^2(\mathbb{R}^{n})$. So by using the above argument
+we can define the Fourier transform for any $L^p(\mathbb{R}^{n})$ function where $1 < p \leq 2$. Now we will show that
+$L^p(\mathbb{R}^{n}) \subseteq L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$. Let $f \in L^p(\mathbb{R}^{n})$. Define,
+\begin{equation*}
+ f_{1}(x) =
+\left\{ \begin{array}{l l}
+f(x), & \quad |f(x)| > 1, \\
+ 0,      & \quad \text{otherwise}. \\
+         \end{array}\right.
+\end{equation*}
+\begin{equation*}
+ f_{2}(x) =
+\left\{ \begin{array}{l l}
+f(x), & \quad |f(x)| < 1, \\
+ 0,      & \quad \text{otherwise}. \\
+         \end{array}\right.
+\end{equation*}
+Since,\;\;\;$p > 1, |f(x)| > 1$ then  $|f(x)|^p > |f(x)|$. Now
+\begin{eqnarray*}
+ \displaystyle{\int{|f_1(x)|dx}}& = &\displaystyle{\int_{|f(x)| > 1}{|f(x)|dx}}\\
+& \leq &\displaystyle{\int{|f(x)|^pdx} < \infty.}
+\end{eqnarray*}
+ So $f_{1} \in L^1(\mathbb{R}^{n})$.\\
+Similary\;\;\;since,\;\;\;$p < 2, |f(x)| < 1$ then  $|f(x)|^2 < |f(x)|^p$. Now
+\begin{eqnarray*}
+ \displaystyle{\int{|f_2(x)|dx}}& = &\displaystyle{\int_{|f(x)| < 1}{|f(x)|^2dx}}\\
+& \leq &\displaystyle{\int{|f(x)|^pdx} < \infty.}
+\end{eqnarray*}
+So $f_{2} \in L^2(\mathbb{R}^{n})$.
+\end{proof}

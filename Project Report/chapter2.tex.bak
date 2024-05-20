@@ -1,0 +1,536 @@
+\chapter{Fourier Transform}
+In this chapter we introduce the Fourier transform of functions on $L^1(\mathbb{R}^{n})$ and  discuss its elementary properties.
+\section{The Fourier Transform on $L^1(\mathbb{R}^{n})$}
+We begin by defining the Fourier transform in $L^1(\mathbb{R}^{n})$.
+\begin{dfn}
+ For $f \in L^1(\mathbb{R}^{n})$, the Fourier transform of $f$ is the function $\hat{f}$ defined by\\
+$$\hat{f}(x) = \int_{\mathbb{R}^{n}}{f(t)e^{-2\pi ix.t}\;dt}$$
+for all $x \in \mathbb{R}^{n}$.
+\end{dfn}
+\subsection{Properties of Fourier transform}
+Now we state some of the properties of Fourier transform.
+\begin{thm}
+ $(a)$\;\;\;The mapping $f \rightarrow \hat{f}$ is a bounded linear transformation from $L^1(\mathbb{R}^{n})$ into $L^{\infty}(\mathbb{R}^{n}).$
+Infact ${\Vert \hat{f} \Vert}_{\infty} \leq {\Vert f \Vert}_{1};$\\
+$(b)$\;\;\;If $f \in L^1(\mathbb{R}^{n})$ then $\hat{f}$ is uniformly continuous.\\
+$(c)$\;\;\;(Riemann-Lebesgue)If $f \in L^1(\mathbb{R}^{n})$ then $\hat{f}(x)\rightarrow 0$ as $|x| \rightarrow \infty$; In otherwords $\hat{f}$
+belongs to the class $C_{0}(\mathbb{R}^n)$.
+\end{thm}
+\begin{proof}
+$(a)$\;\;\; We know from the definition of Fourier transform\\
+$$\hat{f}(x) = \int_{\mathbb{R}^{n}}{f(t)e^{-2\pi ix.t}\;dt}.$$
+\begin{eqnarray*}\text{Now,}\;\;
+ |\hat{f}(x)|& = &\displaystyle{\bigg|\int_{\mathbb{R}^{n}}{f(t)e^{-2\pi ix.t}\;dt}\bigg|}\\
+& \leq &\int_{\mathbb{R}^{n}}{|f(t)|dt} \;\;\;\;[\because\;\;|e^{-2\pi ix.t}| = 1]\\
+& = &{\Vert f \Vert}_{1}\;\;\;\;\forall x \in \mathbb{R}^{n}.
+\end{eqnarray*}
+So\;\;ess sup$|\hat{f}(x)| \leq {\Vert f \Vert}_{1}.$ Hence ${\Vert \hat{f} \Vert}_{\infty} \leq {\Vert f \Vert}_{1}.$\\
+$(b)$\;\;\; Let us consider $\hat{~}:L^1(\mathbb{R}^{n}) \rightarrow L^{\infty}(\mathbb{R}^{n})$ and take $f,g \in L^1(\mathbb{R}^{n}).$ We have
+to show, for any $\varepsilon > 0,\;\; \exists\;\; \delta > 0$ such that ${\Vert {f-g} \Vert}_{1} < \delta\;\;\Rightarrow\;\;{\Vert {\hat{f}-\hat{g}} \Vert}_{\infty} < \varepsilon$.
+\begin{eqnarray*}\text{Now,}\;\;
+ |\hat{f}(x)-\hat{g}(x)|& = &\displaystyle{|\int_{\mathbb{R}^{n}}{f(t)e^{-2\pi ix.t}\;dt}-\int_{\mathbb{R}^{n}}{g(t)e^{-2\pi ix.t}\;dt}|}\\
+& = &\displaystyle{|\int_{\mathbb{R}^{n}}{[f(t)-g(t)]e^{-2\pi ix.t}\;dt}|}\\
+& \leq &\int_{\mathbb{R}^{n}}{|f(t)-g(t)|\;dt}\\
+& = &{\Vert {f-g} \Vert}_{1}\;\;\;\forall\;x\;\in\;\mathbb{R}^{n}.
+\end{eqnarray*}
+So ${\Vert {\hat{f}-\hat{g}} \Vert}_{\infty} \leq {\Vert {f-g} \Vert}_{1} < \delta(\varepsilon)$.
+Now take $\delta = \varepsilon$ we have ${\Vert {\hat{f}-\hat{g}} \Vert}_{\infty} < \varepsilon$. Hence the theorem is proved.\\
+ $(c)$\;\;\;We have to show $\hat{f}(x)\;\rightarrow\;0$ as $|x|\;\rightarrow\;\infty$. Let $f \in L^1(\mathbb{R}^n)$. Now since simple functions are dense
+ in $L^1(\mathbb{R}^n)$, it is enough to prove the result for characteristic functions. For simplicity we prove this result in one dimensional Euclidean space. Let $f$ be the
+characteristic function on the interval $I = \{x \in \mathbb{R}: a \leq x \leq b\}$.
+\begin{eqnarray*}\text{Now,}\;\;
+ |\hat{f}(x)|& = &\displaystyle{\bigg|\int_{a}^{b}{e^{-2\pi ixt}dt}\bigg|}\\
+& = &\displaystyle{\bigg|\frac{e^{-2\pi ixt}}{-2\pi ix}\bigg|_{a}^{b}}\\
+& \leq &C.\frac{1}{|x|}\rightarrow 0\;as\;|x|\rightarrow\infty.
+\end{eqnarray*}
+So $\;\;\hat{f}(x)\rightarrow 0\;as\;|x|\rightarrow\infty.$ Hence the theorem is proved.
+\end{proof}
+\begin{remark}
+ From the above theorem we know that Fourier transform is a mapping from $L^1(\mathbb{R})$ into $C_{0}(\mathbb{R})$ but it is not onto. We will show that
+ there is a function in $C_{0}(\mathbb{R})$ which
+is not a Fourier transform of any $L^1(\mathbb{R})$ function. We produce such a function in $C_{0}(\mathbb{R})$ by the following argument:\\
+If $g = \hat{f}$ is an odd function then
+for $1 < b < \infty$, $|\int_{1}^{b}{[\frac{\hat{f}(x)}{x}]dx}| \leq A$, where A does not depend on $b$.
+\end{remark}
+\begin{proof}
+ Suppose $\hat{f}$ is an odd function. Then $\hat{f}$ is odd $\Leftrightarrow$ $f$ is odd. Then $f(-x) = -f(x).$\\
+\begin{eqnarray*}\text{Now,}\;\;
+ \hat{f}(x)& = &\displaystyle{\int_{-\infty}^{\infty}{f(t)e^{-2\pi ix.t}dt}}\\
+& = &\displaystyle{\int_{-\infty}^{\infty}{f(t)\cos{(2\pi xt)}dt}}-i\displaystyle{\int_{-\infty}^{\infty}{f(t)\sin{(2\pi xt)}dt}}\\
+& = &-i\displaystyle{\int_{-\infty}^{\infty}{f(t)\sin{(2\pi xt)}dt}}.
+\end{eqnarray*}
+\begin{eqnarray*}
+ \therefore\;\;\displaystyle{\bigg|\int_{1}^{b}{\left[\frac{\hat{f}(x)}{x}\right]dx}\bigg|}
+& = &{\bigg|\int_{1}^{b}{\frac{1}{x}\left[-i\displaystyle{\int_{-\infty}^{\infty}{f(t)\sin{(2\pi xt)}dt}}\right]dx}\bigg|}\\
+& = &{\bigg|\int_{1}^{b}{f(t)\left[\displaystyle{\int_{-\infty}^{\infty}{\frac{\sin{(2\pi xt)}}{x}dx}}\right]dt}\bigg|}\;\;\;\text{[By\;\;Fubini's\;\;theorem]}\\
+& \leq &M\displaystyle{\bigg|\int_{-\infty}^{\infty}{f(t)dt}\bigg|}\;\;\;\;[\because\;\;\int_{-\infty}^{\infty}{\frac{\sin(2\pi xt)}{x}dx} \leq M < \infty]\\
+& \leq &M\displaystyle{\int_{-\infty}^{\infty}{|f(t)|dt}}\\
+& = &M{\Vert f \Vert}_{1}<\infty.
+\end{eqnarray*}
+\end{proof}
+\begin{example}
+ The following example indicates that a function in $C_{0}(\mathbb{R})(\subset{L^{\infty}(\mathbb{R})})$ that is not a Fourier transform of an $L^1(\mathbb{R})$ function.\\
+Let us consider $g(x) = \chi_{(1,b)}(x)\frac{1}{\log{x}}$ which belongs to $C_{0}(\mathbb{R})$. Suppose $g(x)$ is the Fourier transform of an $L^1(\mathbb{R})$ function then\\
+\begin{eqnarray*}
+ \displaystyle{\bigg|\int_{1}^{b}{\frac{{g}(x)}{x}dx}\bigg|}& = &\displaystyle{\bigg|\int_{1}^{b}{\frac{1}{x\log{x}}dx}\bigg|}\\
+& = &\log{\log{x}}|_{1}^{b}\;\;\rightarrow\;\infty\;as\;\;b\;\rightarrow\;\infty.
+\end{eqnarray*}
+Therefore, our assumption is wrong. Hence $g(x)$ is not a Fourier transform of an $L^1(\mathbb{R})$ function.
+\end{example}
+\begin{dfn}
+ The definition of the Fourier transform can be extended to the set of finite Borel measure $\mathscr{M}(\mathbb{R}^{n})$. If $\mu \in \mathscr{M}(\mathbb{R}^{n})$ then define
+ $$\hat{\mu}(x) = \int_{\mathbb{R}^{n}}{e^{-2\pi ix.t}\;d\mu(t)}$$
+for all $x \in \mathbb{R}^{n}$, then $\hat{\mu}$ is called the Fourier Stieltjes transform of $\mu$.
+\end{dfn}
+Then the theorem $(2.1.2)$ is valid for Fourier Stieltjes transform if the $L^1(\mathbb{R}^n)$-norm is replaced by the total variation norm.
+\subsection{Convolution and Fourier transform}
+\begin{dfn}
+ If $f,g \in L^1(\mathbb{R}^{n})$ then their convolution is defined as\\
+$$f*g(x) = \int_{\mathbb{R}^{n}}{f(x-y)g(y)\;dy}.$$
+\end{dfn}
+For $f ,\;g \in L^1(\mathbb{R}^n)$,\begin{eqnarray*}
+{\Vert f*g \Vert}_{1}& = &\int_{\mathbb{R}^{n}}{|f*g(x)|\;dx}\\
+& = &\int_{\mathbb{R}^{n}}{\displaystyle{|\int_{\mathbb{R}^{n}}{f(x-y)g(y)\;dy}|}dx}\\
+& \leq &\int_{\mathbb{R}^{n}}{\displaystyle{\int_{\mathbb{R}^{n}}{|f(x-y)||g(y)|dy\;dx}}}\\
+& = &\int_{\mathbb{R}^{n}}{\left[\int_{\mathbb{R}^{n}}{|f(x-y)|dx}\right]|g(y)|dy}\;\;\;\;\text{[By\;\;Fubini's\;\;theorem]}\\
+& = &{\Vert f \Vert}_{1}{\Vert g \Vert}_{1} < \infty.
+\end{eqnarray*}
+Hence, if $f, g \in L^1(\mathbb{R}^n)$ then $f*g \in L^1(\mathbb{R}^n)$. Moreover, if $f \in  L^p(\mathbb{R}^n), 1 \leq p \leq \infty$ and $g \in L^1(\mathbb{R}^n)$ then
+$f*g \in L^p(\mathbb{R}^n)$. Infact we prove the following result:
+\begin{thm}
+ If $f \in L^p(\mathbb{R}^{n}), 1 \leq p \leq \infty,$ and $g \in L^1(\mathbb{R}^{n})$ then $h = f*g$ is well defined and belongs to $ L^1(\mathbb{R}^{n})$.
+Moreover, ${\Vert h \Vert}_{p} \leq {\Vert f \Vert}_{p}{\Vert g \Vert}_{1}$.
+\end{thm}
+\begin{proof}
+  From the definition of convolution we have\\
+$$h(x) = f*g(x) = \int_{\mathbb{R}^{n}}{f(x-y)g(y)\;dy}.$$
+\begin{eqnarray*}\text{Now,}\;\;
+ |h(x)|& \leq &\displaystyle{\int_{\mathbb{R}^{n}}{|f(x-y)||g(y)|dy}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{|f(x-y)||g(y)|^{\frac{1}{p}+\frac{1}{q}}dy}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{\left(|f(x-y)||g(y)|^{\frac{1}{p}}\right)\left(|g(y)|^{\frac{1}{q}}\right)dy}}\\
+& \leq &\left(\displaystyle{\int_{\mathbb{R}^{n}}{\left(|f(x-y)||g(y)|^{\frac{1}{p}}\right)^{p}dy}}\right)^{\frac{1}{p}}
+\left(\displaystyle{\int_{\mathbb{R}^{n}}{\left(|g(y)|^{\frac{1}{q}}\right)^{q}dy}}\right)^{\frac{1}{q}}
+\end{eqnarray*}
+So\;\; $|h(x)|^{p}\;\;\leq\;\;\left(\displaystyle{\int_{\mathbb{R}^{n}}{\left(|f(x-y)|^{p}|g(y)|\right)dy}}\right)
+\left(\displaystyle{\int_{\mathbb{R}^{n}}{\left(|g(y)|\right)dy}}\right)^{\frac{p}{q}}.$\\
+\begin{eqnarray*}\text{Now,}\;\;
+\displaystyle{\int_{\mathbb{R}^{n}}{|h(x)|^{p}dx}}& \leq &\left(\int_{\mathbb{R}^{n}}
+{\int_{\mathbb{R}^{n}}{|f(x-y)|^{p}|g(y)|dy}\;dx}\right)\left(\displaystyle{\int_{\mathbb{R}^{n}}{\left(|g(y)|\right)dy}}\right)^{\frac{p}{q}}\\
+& = &\left(\int_{\mathbb{R}^{n}}{\left(\int_{\mathbb{R}^{n}}{|f(x-y)|^{p}dx}\right)|g(y)|dy}\right)\left(\displaystyle{\int_{\mathbb{R}^{n}}
+{\left(|g(y)|\right)dy}}\right)^{\frac{p}{q}}\\
+& = &{\Vert f \Vert}^{p}_{p}.{\Vert g \Vert}^{1}_{1}.{\Vert g \Vert}^{p-1}_{1}\\
+& = &{\Vert f \Vert}^{p}_{p}.{\Vert g \Vert}^{p}_{1}.
+\end{eqnarray*}
+Thus we have\;\;\;${\Vert h \Vert}_{p} \leq {\Vert f \Vert}_{p}{\Vert g \Vert}_{1}.$
+\end{proof}
+\begin{dfn}
+ The definition of convolution can be extended to finite Borel measures: if $\mu$ is such a measure on $\mathbb{R}^{n}$ we define $h = f*d\mu$ by letting\\
+$$h(x)  = \int_{\mathbb{R}^{n}}{f(x-y)d\mu(y)},$$
+for $x \in \mathbb{R}^{n}$ and $f \in L^{p}(\mathbb{R}^n)$.
+\end{dfn}
+Now we are in a position to state some nice properties of Fourier transform.
+\begin{thm}
+ If $f,\;g \in L^{1}(\mathbb{R}^{n})$ then $(f*g\hat{)~} = \hat{f}\hat{g}.$
+\end{thm}
+\begin{proof}
+Let $h = f*g(x)$,\; then from the definition of the Fourier transform \\ $$\hat{h}(x) = \int_{\mathbb{R}^{n}}{h(t)e^{-2 \pi ix.t}\;dt}.$$
+\begin{eqnarray*}\text{Now,}\;\;\;
+ \hat{h}(x)& = &\int_{\mathbb{R}^{n}}{\left[\int_{\mathbb{R}^{n}}{f(t-y)g(y)dy}\right]e^{-2\pi ix.t}dt}\\
+& = &\int_{\mathbb{R}^{n}}{\left[\int_{\mathbb{R}^{n}}{f(t-y)e^{-2\pi ix.t}dt}\right]g(y)dy}\\
+& = &\int_{\mathbb{R}^{n}}{\left[\int_{\mathbb{R}^{n}}{f(z)e^{-2\pi ix.(y+z)}dz}\right]g(y)dy}\;\;\;[Put\;\;t = y+z]\\
+& = &\int_{\mathbb{R}^{n}}{f(z)e^{-2\pi ix.z}dz}.\int_{\mathbb{R}^{n}}{g(y)e^{-2\pi ix.y}dy}\\
+& = &\hat{f}\hat{g}.
+\end{eqnarray*}
+$\therefore\;\;(f*g\hat{)~} = \hat{f}\hat{g}.$
+\end{proof}
+\begin{prop}
+ For any $a > 0$ and any vector $h \in {\mathbb{R}^{n}}$ we define the dialation by $a$, $\delta_{a}$ and the translation by $h$, $\tau_{h}$,
+as the operators mapping any function $f(x)$ into $f(ax)$ and $f(x-h)$ respectively. Then we have\\
+\begin{enumerate}
+ \item $(\tau_{h}f\hat{)~}(x) = e^{-2\pi ih.x}\hat{f}(x),$
+\item $(e^{2\pi it.h}{f(t)}\hat{)~}(x) = (\tau_{h}\hat{f})(x),$
+\item $(\delta_{a}f\hat{)~}(x) = a^{-n}\hat{f}(a^{-1}x).$
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\begin{eqnarray*}(1)\;\;
+\text{Consider},\;\;\; (\tau_{h}f\hat{)~}(x)& = &\int_{\mathbb{R}^{n}}{f(t-h)e^{-2\pi ix.t}\;dt}\\
+& = &\int_{\mathbb{R}^{n}}{f(t-h)e^{-2\pi ix.(t-h)}.e^{-2\pi ix.h}\;dt}\\
+& = &e^{-2\pi ih.x}\hat{f}(x).
+\end{eqnarray*}
+\begin{eqnarray*}(2)\;\;
+\text{Consider},\;\;\; (e^{2\pi it.h}{f(t)}(x)& = &\int_{\mathbb{R}^{n}}{f(t)e^{2\pi it.h}.e^{-2\pi ix.t}\;dt}\\
+& = &\int_{\mathbb{R}^{n}}{f(t)e^{-2\pi it.(x-h)}\;dt}\\
+& = &\hat{f}(x-h)\\
+& = &(\tau_{h}\hat{f})(x).
+\end{eqnarray*}
+\begin{eqnarray*}(3)\;\;
+\text{Consider},\;\;\; (\delta_{a}f\hat{)~}(x)& = &\int_{\mathbb{R}^{n}}{f(at)e^{-2\pi ix.t}\;dt}\\
+& = &a^{-n}\int_{\mathbb{R}^{n}}{f(z)e^{-2\pi i{\frac{x}{a}}.z}\;dz}\;\;\;[Put\;\;at = z]\\
+& = &a^{-n}\hat{f}(a^{-1}x).
+\end{eqnarray*}
+\end{proof}
+\begin{lem}
+ If $1 \leq  p < \infty$, then the mapping $\tau$ from $\mathbb{R}$ to $L^P(\mathbb{R}^{n})$ given by $h \mapsto \tau_{h}f$ is uniformly continuous.
+\end{lem}
+\begin{proof}
+ Let us consider $\tau:\mathbb{R}\longrightarrow L^P(\mathbb{R}^n)$. We have to show $\tau$ is uniformly continuous i.e, for any given $\varepsilon>0,\;\exists\;\;\delta>0$
+such that ${\Vert \tau_{h}f - f \Vert}_{p}<\varepsilon$ whenever $|h|<\delta(\varepsilon)$. Take $f \in L^p(\mathbb{R}^n)$. Now since $\overline{C}_{c}(\mathbb{R}^n) = L^p(\mathbb{R}^n)$
+then $\exists$ $\{f_{n}\}\subset\overline{C}_{c}(\mathbb{R}^n)$ such that $f_{n} \to f$ in $L^p(\mathbb{R}^n)$
+i.e, $\int_{\mathbb{R}^n}{{|f_{n}(x)-f(x)|}^pdx}<\varepsilon^p$. Again since Supp$(f_{n})\subset K_{n}$ and $f_{n}$'s are continuous then for
+any given $\varepsilon >0\;\;\exists\;\;\delta>0$ such that $|h|<\delta \Longrightarrow |f_{n}(x-h)-f_{n}(x)|<\varepsilon/(3\mu(K_{n}))^{1/p}$.Now,
+\begin{eqnarray*}
+ {\Vert \tau_{h}f - f \Vert}_{p}& = &{\Vert \tau_{h}f - \tau_{h}f_{n} + \tau_{h}f_{n} - f_{n} + f_{n} -f\Vert}_{p}\\
+& \leq &{\Vert \tau_{h}f - \tau_{h}f_{n}\Vert}_p + {\Vert\tau_{h}f_{n} - f_{n}\Vert}_p + {\Vert f_{n} -f\Vert}_p\\
+& < &\frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon. 
+\end{eqnarray*}
+Hence we get our desired result.
+\end{proof}
+\begin{lem}
+ If $\frac{1}{p} + \frac{1}{q}$, $f \in L^p(\mathbb{R}^n)$ and $g \in L^q(\mathbb{R}^n)$, then $f*g$ is uniformly continuous.
+If $1 < p <\infty$ then $\displaystyle{\lim_{|x| \rightarrow \infty}{f*g(x)}} = 0.$
+\end{lem}
+\begin{proof}
+ Take $f \in L^p(\mathbb{R}^n)$ and $g \in L^q(\mathbb{R}^n)$. Now since $C_{c}(\mathbb{R}^n)$ is dense in both $L^p(\mathbb{R}^n)$ and $L^q(\mathbb{R}^n)$ then there exists sequence
+$\{f_{n}\}\subset C_{c}(\mathbb{R}^n)$ and $\{g_{n}\}\subset C_{c}(\mathbb{R}^n)$
+such that $f_{n}$ converges to $f$ in $L^p(\mathbb{R}^n)$-norm and $g_{n}$ converges to $g$ in $L^q(\mathbb{R}^n)$-norm. Consider
+\begin{eqnarray*}
+ |f_{n}*g_{n}-f*g|& = &|f_{n}*g_{n}-f_{n}*g+f_{n}*g-f*g|\\
+& \leq &|f_{n}*(g_{n}-g)|+|(f_{n}-f)*g_{n}|\\
+& \leq &{\Vert f_{n} \Vert}_{1}.{\Vert g_{n}-g \Vert}_{q}+{\Vert f_{n}-f \Vert}_{p}.{\Vert g_{n} \Vert}_{1}\rightarrow 0\;\;\text{as}\;\;n \rightarrow \infty.
+\end{eqnarray*}
+Therefore $f*g$ is uniformly continuous and $\displaystyle{{\lim_{|x|\rightarrow \infty}f*g(x)}} = \displaystyle{\lim_{|x|\rightarrow \infty}{f_{n}*g_{n}(x)}} = 0$.
+\end{proof}
+\begin{thm}
+ Suppose $f \in L^1(\mathbb{R}^{n})$ and $t_{k}f(t) \in L^1(\mathbb{R}^{n})$, where $t_{k}$ is the $k$-th coordinate function.
+Then $\hat{f}$ is differentiable with respect to $x_{k}$ and\\
+$$\frac{\partial\hat{f}}{\partial x_{k}}(x) = (-2\pi it_{k}f(t)\hat{)~}(x).$$
+\end{thm}
+\begin{proof}
+ Letting $h = (0,\cdots,h_{k},\cdots,0)$ be a nonzero vector along the $k$-th coordinate axis.
+\begin{eqnarray*}\text{Now,}\;\;
+ \frac{\partial\hat{f}}{\partial x_{k}}(x)& = &\displaystyle{\lim_{h_{k} \rightarrow 0}{\frac{\hat{f}(x+h)-\hat{f}(x)}{h_{k}}}}\\
+& = &\displaystyle{\lim_{h_{k} \rightarrow 0}{\frac{1}{h_{k}}\left[\int_{\mathbb{R}^{n}}{(e^{-2\pi i(x+h).t}-e^{-2\pi ix.t})f(t)\;dt}\right]}}\\
+& = &\displaystyle{\lim_{h_{k} \rightarrow 0}{\frac{1}{h_{k}}\left[\int_{\mathbb{R}^{n}}{e^{-2\pi ix.t}(e^{-2\pi ih.t}-1)f(t)\;dt}\right]}}.\\
+\end{eqnarray*}
+Since, $\bigg|\frac{e^{-2\pi ih.t} -1}{h_{k}}\bigg| \leq 2\pi t_{k}$,
+then an application of Lebesgue dominated convergence theorem gives
+\begin{eqnarray*}
+\frac{\partial\hat{f}}{\partial x_{k}}(x)& = &\int_{\mathbb{R}^{n}}{e^{-2\pi ix.t}\left[\displaystyle{\lim_{h_{k} \rightarrow 0}
+{\frac{e^{-2\pi ih.t}-1}{h_{k}}}}\right]f(t)\;dt}\\
+& = &\int_{\mathbb{R}^{n}}{e^{-2\pi ix.t}(-2\pi it_{k})f(t)\;dt}\\
+& = &(-2\pi it_{k}f(t)\hat{)~}(x).
+\end{eqnarray*}
+\end{proof}
+\begin{dfn}
+ A function $f\in L^p(\mathbb{R}^{n})$ is differentiable in the $f\in L^p(\mathbb{R}^{n})$-norm with respect to $x_{k}$, if there exists $g \in L^p(\mathbb{R}^{n})$ such that\\
+$$\left(\int_{\mathbb{R}^{n}}{|{\frac{f(x+h)-f(x)}{h_{k}}-g(x)}|^{p}\;dx}\right)^{\frac{1}{p}}\;\;\rightarrow\;\;0\;\;as\;\;h_{k}\;\;\rightarrow\;0$$
+The function $g$ is called the partial derivative of $f$ with respect to $x_{k}$ in the $L^p(\mathbb{R}^n)$-norm.
+\end{dfn}
+\begin{thm}
+ If $f \in L^1(\mathbb{R}^{n})$ and $g \in L^p(\mathbb{R}^{n})$ is the partial derivative of f with respect to $x_{k}$ in the $L^1(\mathbb{R}^n)$-norm then $\hat{g}(x) = 2\pi ix_{k}\hat{f}(x).$
+\end{thm}
+\begin{proof}
+Let $f \in L^1(\mathbb{R}^n)$ and $g$ is the partial derivative of
+$f$ with respect to $x_{k}$. Consider,
+\begin{eqnarray*}
+\displaystyle{\bigg|\hat{g}(x)-\hat{f}(x).\left(\frac{e^{2\pi
+ih.x}-1}{h_{k}}\right)\bigg|}& =
+&\displaystyle{\bigg|\hat{g}(x)-\frac{(\tau_{-h}\hat{f})(x)-\hat{f}(x)}{h_{k}}\bigg|}
+\;\;\text{[By\;\;proposition(2.1.10)]}\\
+& = &\displaystyle{\bigg|[{g}(x)-\frac{{(\tau_{-h}f)}(x)-{f}(x)}{h_{k}}\hat{]~}\bigg|}\\
+& \leq &\displaystyle{\int_{\mathbb{R}^{n}}{\displaystyle{\bigg|{g}(x)-\frac{{(\tau_{-h}f)}(x)-{f}(x)}{h_{k}}\bigg|}}\;dx}\;\;\text{[By theorem (2.1.2)]}\\
+& =
+&\displaystyle{\int_{\mathbb{R}^{n}}{\displaystyle{\bigg|{g}(x)-\frac{f(x
+- h)-{f}(x)}{h_{k}}\bigg|}}\;dx} \;\rightarrow\;0
+\end{eqnarray*}
+as $h_{k}\rightarrow 0$. Since,
+$\displaystyle{\bigg|\hat{g}(x)-\hat{f}(x).\left(\frac{e^{2\pi
+ih.x}-1}{h_{k}}\right)\bigg|} \rightarrow 0$ as
+$h_{k} \rightarrow 0$, we get $\hat{g}(x) = 2\pi ix_{k}\hat{f}(x).$
+\end{proof}
+\begin{remark}
+  The theorems (2.1.13) and (2.1.15) can be extended to higher derivatives, which takes the form :
+\begin{enumerate}
+ \item $P(D)\hat{f}(x) = (P(-2\pi it)f(t)\hat{)~}(x),$
+\item $(P(D)f\hat{)~}(x) = P(2\pi ix)\hat{f}(x),$
+\end{enumerate}
+where, for an n-tuple $\alpha = (\alpha_{1},\cdots,\alpha_{n})$ of
+non-negative integers we
+let $x^{\alpha} = x^{\alpha_{1}}_{1}x^{\alpha_{2}}_{2}\cdots x^{\alpha_{n}}_{n}$,
+$ D^{\alpha} \equiv \frac{\partial^{\alpha_{1}+\alpha_{2}+\cdots+\alpha_{n}}}{\partial x^{\alpha_{1}}_{1}\partial x^{\alpha_{2}}_{2}\cdots\partial x^{\alpha_{n}}_{n}}$,
+$P$ is a polynomial in the $n$ variables $x_{1},x_{2},\cdots,x_{n}$ and $P(D)$ is the associated differential operator(i.e., we replace $x^{\alpha}$ by $D^{\alpha}$ in $P(x))$.\\
+ \end{remark}
+\subsection{Inversion formula}
+The main problem in the $L^{1}(\mathbb{R}^{n})$ theory of Fourier transform is to obtain a function $f$ back from its Fourier transform $\hat{f}$.
+Our next task is to answer this question. We are familiar with the elementary theory of Fourier series and integrals would expect $f(t)$ to be equal to the integral\\
+$$\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}\;dx}.$$
+Here we introduce certain summability methods for integrals.
+\begin{dfn}
+ For each $\varepsilon > 0$ and $f$ a locally integrable function, we define the Abel mean $A(f)$ to be the integral
+\begin{eqnarray}
+ A(f) = \int_{\mathbb{R}^{n}}{{f}(x)e^{-\varepsilon|x|}\;dx}.
+\end{eqnarray}
+Similarly, we define the Gauss-Weierstrass mean $G(f)$ as
+\begin{eqnarray}
+  G(f) = \int_{\mathbb{R}^{n}}{{f}(x)e^{-\epsilon|x|^{2}}\;dx}.
+\end{eqnarray}
+Whenever the limit $\displaystyle{\lim_{\varepsilon \rightarrow 0}{ A_{\varepsilon}(f)}}$ or  $\displaystyle{\lim_{\varepsilon \rightarrow 0}{ G_{\varepsilon}(f)}}$ exists,
+we say that $\int_{\mathbb{R}^{n}}{{f}(x)\;dx}$ is Abel or Weierstrass summable. If $f$ is integrable,
+then by an application of Lebesgue dominated convergence theorem shows that both the limits $\displaystyle{\lim_{\varepsilon \rightarrow 0}{ A_{\varepsilon}(f)}}$ and
+$\displaystyle{\lim_{\varepsilon \rightarrow 0}{ G_{\varepsilon}(f)}}$ exists and equal to
+ $\int_{\mathbb{R}^{n}}{{f}(x)\;dx}.$\\
+Equations $(2.1)$ and $(2.2)$ can be put in a more general form
+\begin{eqnarray}
+M_{\varepsilon,\Phi}(f) = M_{\varepsilon}(f) = \int_{\mathbb{R}^{n}}{\Phi(\varepsilon x)f(x)\;dx},
+\end{eqnarray}
+where $\Phi \in C_{0}(\mathbb{R}^n)$ and $\Phi(0) = 1$. Then $\int_{\mathbb{R}^{n}}{f(x)\;dx}$ is summable to $l$ if $\displaystyle{\lim_{\varepsilon\;\rightarrow\;0}{M_{\varepsilon}f}} = l.$
+We shall call $M_{\varepsilon,\Phi}(f)$ the $\Phi$ means of this integral.
+\end{dfn}
+Abel means can be defined even if $f$ is not integrable. If $f$ is bounded in $\mathbb{R}^{n}$, then $A_{\varepsilon}(f)$ can be defined.
+ The following example shows that a function $f$ might be Abel or Weierstrass summable without being integrable.\\
+\begin{example}
+Let $f(x) = {\frac{\sin x}{x}}\chi_{(0,\infty)}(x)$. We know that $f \notin L^1(\mathbb{R})$. But $f$ is bounded in $\mathbb{R}$ and we will show that the function $f$ is Abel
+summable to $\frac{\pi}{2}$. Consider,
+\begin{eqnarray*}
+\bigg|\int_{\mathbb{R}}{e^{-\varepsilon |x|}f(x)dx} - \frac{\pi}{2}\bigg|
+& = &\bigg|\int_{0}^{\infty}{e^{-\varepsilon x}.\frac{\sin{x}}{x}dx} - \int_{0}^{\infty}{\frac{\sin{x}}{x}dx}\bigg|\\
+& = &\bigg|\int_{0}^{\infty}{\left(e^{-\varepsilon x} - 1\right)\frac{\sin{x}}{x}dx}\bigg|\\
+& = &\bigg|\int_{0}^{M}{\left(e^{-\varepsilon x} - 1\right)\frac{\sin{x}}{x}dx}\bigg| + \bigg|\int_{M}^{\infty}{\left(e^{-\varepsilon x} - 1\right)\frac{\sin{x}}{x}dx}\bigg|.
+\end{eqnarray*}
+Now since, $(e^{-\varepsilon x} - 1)$ is continuous on $[0,M]$, so it will attain its maximum at $x = a$(say),
+and then the first integral is bounded by $(e^{-\varepsilon x} - 1)\int_{0}^{M}{|\frac{\sin{x}}{x}|dx}$.
+Also $|\frac{\sin{x}}{x}|$ is continuous on $[0,M]$, so $(e^{-\varepsilon x} - 1)\int_{0}^{M}{|\frac{\sin{x}}{x}|dx}$ is bounded by
+$K(e^{-\varepsilon a} - 1)$ which tends to zero as $\varepsilon \rightarrow 0$. In the second integral substituting $\varepsilon x = u$,
+and using the fact that $\int_{M}^{\infty}{\frac{\sin{x}}{x}dx} < \delta_{M}$ we get, $\int_{M}^{\infty}{\left(e^{-\varepsilon x} - 1\right)\frac{\sin{x}}{x}dx} \rightarrow 0$
+as $\varepsilon \rightarrow 0$. Hence we get our desired result.
+\end{example}
+\begin{res}
+ We now calculate the Fourier transforms of the functions $e^{-\varepsilon|x|^2}$ and $e^{-\varepsilon x}$ which will be needed at a later stage.
+\begin{eqnarray*}
+ \displaystyle{\int_{\mathbb{R}^{n}}{e^{-4{\pi}^2|x|^2}.{e^{-2\pi ix.t}}\;dx}}
+& = &\displaystyle{\prod_{j=1}^{n}\int_{-\infty}^{\infty}{e^{-4{\pi}^2|x_{j}|^2}.{e^{-2\pi ix_{j}.t_{j}}}\;dx_{j}}}\\
+& = &\displaystyle{\prod_{j=1}^{n}\int_{-\infty}^{\infty}{e^{-4{\pi}^2(x_{j}+\frac{it_{j}}{4\pi})^2}.{e^{-\frac{t^2_{j}}{4}}\;dx_{j}}}}\\
+& = &\displaystyle{\prod_{j=1}^{n}{\sqrt{\frac{\pi}{4\pi^2}}.{e^{-\frac{t^2_{j}}{4}}}}}\\
+& = & 2^{-n}\pi^{\frac{-n}{2}}{e^{-\frac{|t|^2}{4}}}.
+\end{eqnarray*}
+\end{res}
+\begin{thm}
+ For all $\alpha > 0$ we have\\
+$$\displaystyle{\int_{\mathbb{R}^{n}}{e^{-{\pi}\alpha|y|^2}.{e^{-2\pi iy.t}}\;dy}} = \alpha^{\frac{-n}{2}}{e^{-\frac{\pi|t|^2}{\alpha}}}.$$
+\end{thm}
+\begin{proof}
+By a change of variables we see that it suffices to show this result when $\alpha = 1.$
+\begin{eqnarray*}
+\displaystyle{\int_{\mathbb{R}^{n}}{e^{-{\pi}\alpha|y|^2}.{e^{-2\pi iy.t}}\;dy}}
+& = &\displaystyle{\prod_{j=1}^{n}\int_{-\infty}^{\infty}{e^{-{\pi}|y_{j}|^2}.{e^{-2\pi iy_{j}.t_{j}}}\;dy_{j}}}\\
+ & = &\displaystyle{\prod_{j=1}^{n}e^{-\pi t^2_{j}}}\\
+& = &e^{-\pi |t|^2}.
+\end{eqnarray*}
+\end{proof}
+\begin{thm}
+ For all $\alpha > 0$ we have\\
+$$\displaystyle{\int_{\mathbb{R}^{n}}{e^{-{2\pi}\alpha|y|}.{e^{-2\pi iy.t}}\;dy}} = c_{n}\frac{\alpha}{(\alpha^2+|t|^2)^{(n+1)/2}}.$$
+where $c_{n} = \Gamma[(n+1)/2]/(\pi^{(n+1)/2})$.
+\end{thm}
+\begin{proof}
+ By a change of variables we see that it suffices to show this result when $\alpha = 1.$ In order to show this let us assume that\\
+\begin{eqnarray}
+ e^{-\beta} = \frac{1}{\sqrt \pi}\displaystyle{\int_{0}^{\infty}{\frac{e^{-u}}{\sqrt u}e^{-\frac{\beta^2}{4u}}\;du}}
+\end{eqnarray}
+whenever $\beta > 0.$ Now,\\
+\begin{eqnarray*}
+ \displaystyle{\int_{\mathbb{R}^{n}}{e^{-{2\pi}\alpha|y|}.{e^{-2\pi iy.t}}\;dy}}
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{\left(\frac{1}{\sqrt \pi}\displaystyle{\int_{0}^{\infty}{\frac{e^{-u}}{\sqrt u}e^{-\frac{-4\pi^2|y|^2}{4u}}\;du}}\right)
+{e^{-2\pi iy.t}}\;dy}}\\
+ & = &\frac{1}{\sqrt \pi}\displaystyle{\int_{0}^{\infty}{\frac{e^{-u}}{\sqrt u}\left({\displaystyle{\int_{\mathbb{R}^{n}}
+{e^{-\frac{-4\pi^2|y|^2}{4u}}.{e^{-2\pi iy.t}}\;dy}}}\right)\;du}}\\
+& = &\frac{1}{\sqrt \pi}\displaystyle{\int_{0}^{\infty}{\frac{e^{-u}}{\sqrt u}\left({\displaystyle{\int_{\mathbb{R}^{n}}
+{e^{-\pi(\frac{\pi}{u})|y|^2}.{e^{-2\pi iy.t}}\;dy}}}\right)\;du}}\\
+& = &\frac{1}{\sqrt \pi}\displaystyle{\int_{0}^{\infty}{\frac{e^{-u}}{\sqrt u}\left((\pi/u)^{\frac{-n}{2}}e^{-u|t|^2}\right)\;du}}\;\;\;\text{[By\;\;theorem\;\;(2.1.20)]}\\
+& = &\frac{1}{\pi^{(n+1)/2}}\displaystyle{\int_{0}^{\infty}{e^{-(1+|t|^2)u}.u^{\frac{n-1}{2}}\;du}}\\
+& = &\frac{1}{\pi^{(n+1)/2}.(1+|t|^2)^{(n+1)/2}}\displaystyle{\int_{0}^{\infty}{e^{-s}.s^{\frac{n-1}{2}}\;ds}}\;\;\;[Put\;\;(1+|t|^2)u = s]\\
+& = &\frac{\Gamma[(n+1)/2]}{\pi^{(n+1)/2}.(1+|t|^2)^{(n+1)/2}}.
+\end{eqnarray*}
+Consequently the theorem will be established once we show (2.4). We will prove this by using the identities\\
+\begin{eqnarray}
+  e^{-\beta} = \frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{\frac{\cos{\beta x}}{1+x^2}\;dx}},\;\;\beta\;>\;0\;\;and
+\end{eqnarray}
+\begin{eqnarray}
+\frac{1}{1+x^2} = \displaystyle{\int_{0}^{\infty}{e^{-(1+x^2)u}\;du}}.
+\end{eqnarray}
+The proof of the identity (2.6) is obvious and the identity (2.5) is an application of the theory of residues to the function ${e^{i\beta z}}/{1+z^2}.$ Thus,
+\begin{eqnarray*}
+  e^{-\beta}& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{\frac{\cos{\beta x}}{1+x^2}\;dx}}\\
+& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{\cos{\beta x}\left(\displaystyle{\int_{0}^{\infty}{e^{-(1+x^2)u}\;du}}\right)\;dx}}\\
+& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{e^{-u}\left(\displaystyle{\int_{0}^{\infty}{e^{-ux^2}\cos{\beta x}\;dx}}\right)\;du}}\\
+& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{e^{-u}\left(\frac{1}{2}\displaystyle{\int_{-\infty}^{\infty}{e^{-ux^2}e^{i\beta x}\;dx}}\right)\;du}}\\
+& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{e^{-u}\left(\pi\displaystyle{\int_{-\infty}^{\infty}{e^{-4\pi^2uy^2}e^{-2\pi i\beta y}\;dy}}\right)\;du}}\;\;[Put\;\;x = -2\pi y]\\
+& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{e^{-u}\left(\pi\displaystyle{\int_{-\infty}^{\infty}{e^{-4\pi^2uy^2}e^{-2\pi i\beta y}\;dy}}\right)\;du}}\\
+& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{e^{-u}\left(\pi\displaystyle{\int_{-\infty}^{\infty}{e^{-\pi(4\pi u)|y|^2}e^{-2\pi i\beta y}\;dy}}\right)\;du}}\\
+& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{e^{-u}\left(\pi.(4\pi u)^{-\frac{1}{2}}.e^{-\frac{\pi |\beta|^2}{4\pi u}}\right)\;du}}\\
+& = &\frac{2}{\pi}\displaystyle{\int_{0}^{\infty}{e^{-u}\left(\frac{1}{2}\sqrt{\frac{\pi}{u}}e^{-\frac{\beta^2}{4u}}\right)\;du}}.
+\end{eqnarray*}
+\end{proof}
+\begin{remark}
+ For $\alpha > 0$, let us denote the Fourier transform of the functions $\phi_{\alpha}(y) = e^{-4\pi\alpha|y|^2}$ and $\rho_{\alpha}(y) = e^{-2\pi \alpha|y|}$ by $W(t,\alpha)$
+and $P(t,\alpha)$ respectively. That is,\\
+$$W(t,\alpha) = (4\pi\alpha)^{-(n/2)}e^{-\frac{|t|^2}{4\alpha}},$$
+$$P(t,\alpha) = c_{n}\frac{\alpha}{(\alpha^2+|t|^2)^{(n+1)/2}}.$$ Then
+$W(t,\alpha)$ is called the Gauss-Weierstrass Kernel and $P(t,\alpha)$ is called the Poisson Kernel.
+\end{remark}
+\begin{thm}(The Multiplication Formula)
+If f and g belong to $L^1(\mathbb{R}^{n})$ then\\
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)g(x)\;dx}} = \displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)\hat{g}(x)\;dx}}.$$
+\end{thm}
+\begin{proof}
+ Applying Fubini's theorem, we have
+\begin{eqnarray*}
+ \displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)g(x)\;dx}}& = &\displaystyle{\int_{\mathbb{R}^{n}}{\left(\int_{\mathbb{R}^{n}}{f(t)e^{-2\pi ix.t}\;dt}\right)g(x)\;dx}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{\left(\int_{\mathbb{R}^{n}}{g(x)e^{-2\pi ix.t}\;dx}\right)f(t)\;dt}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)\hat{g}(x)\;dx}}.
+\end{eqnarray*}
+\end{proof}
+\begin{thm}
+ If f and $\Phi$ belong to $L^1(\mathbb{R}^{n})$ and $\varphi = \hat{\Phi}$ then\\
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}\Phi(\varepsilon x)\;dx}} = \displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)\varphi_{\varepsilon}(x-t)\;dx}}$$
+for all $\varepsilon > 0$. In particular,
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}e^{-2\pi\varepsilon|x|}\;dx}} = \displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)P(x-t,\varepsilon)\;dx}}$$
+and
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}e^{-4\pi^2\varepsilon|x|^2}\;dx}} = \displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)W(x-t,\varepsilon)\;dx}}$$
+for all $\alpha > 0$.
+\end{thm}
+\begin{proof}
+ Suppose the function $\Phi$ is integrable. Now\\
+\begin{eqnarray*}
+ \displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}\Phi(\varepsilon x)\;dx}}
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)[e^{2\pi it.x}\Phi(\varepsilon x)\hat{]~}\;dx}}\;\;\text{[By\;\;Theorem\;(2.1.23)\;]}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)(\tau_{t}\hat{\Phi})(x)\;dx}}\;\;\text{[By\;\;Proposition\;(2.1.10)]}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)(\tau_{t}{\varphi}_{\varepsilon})(x)\;dx}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)\varphi_{\varepsilon}(x-t)\;dx}}.
+\end{eqnarray*}
+In particular,
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}e^{-2\pi\varepsilon|x|}\;dx}} = \displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)P(x-t,\varepsilon)\;dx}}$$
+and
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}e^{-4\pi^2\varepsilon|x|^2}\;dx}} = \displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)W(x-t,\varepsilon)\;dx}}$$
+for all $\alpha > 0$.
+\end{proof}
+\begin{lem}
+\begin{enumerate}
+\item $\displaystyle{\int_{\mathbb{R}^{n}}{W(x,\alpha)\;dx}} = 1$ for all $\alpha > 0$,
+ \item $\displaystyle{\int_{\mathbb{R}^{n}}{P(x,\alpha)\;dx}} = 1$ for all $\alpha > 0$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+ $1.$\;\;\;\;\;For $\alpha > 0$, by a change a variable we first note that $\displaystyle{\int_{\mathbb{R}^{n}}{W(x,\alpha)\;dx}} = \displaystyle{\int_{\mathbb{R}^{n}}{W(x,1)\;dx}}$.
+thus it is sufficient to prove this lemma when $\alpha = 1$. Since, $W(x,\alpha) = (4\pi\alpha)^{-(n/2)}e^{-\frac{|x|^2}{4\alpha}}$ then $W(x,1) = (4\pi)^{-(n/2)}e^{-\frac{|x|^2}{4}}$. Now,\\
+\begin{eqnarray*}
+ \displaystyle{\int_{\mathbb{R}^{n}}{W(x,1)\;dx}}& = &\displaystyle{\int_{\mathbb{R}^{n}}{(4\pi)^{-(n/2)}e^{-\frac{|x|^2}{4}}\;dx}}\\
+& = &(4\pi)^{-(n/2)}(\sqrt{4\pi})^{n}\\
+& = &1.
+\end{eqnarray*}
+$2.$\;\;\;\;\;Similarly we have that $\displaystyle{\int_{\mathbb{R}^{n}}{P(x,\alpha)\;dx}} = \displaystyle{\int_{\mathbb{R}^{n}}{P(x,1)\;dx}}$.
+Since, $P(x,\alpha) = c_{n}\frac{\alpha}{(\alpha^2+|x|^2)^{(n+1)/2}}$ then  $P(x,1) = c_{n}\frac{1}{(\alpha^2+|x|^2)^{(n+1)/2}}$.
+To prove (2) we see that ${1}/{c_{n}} = {\pi}^{(n+1)/2}/\Gamma[(n+1)/2]$ is half the surface area of the unit sphere $S^{n}$ of $\mathbb{R}^{n+1}$.
+Let us denote the surface area by $\sigma_{n}.$ Then (2) is equivalent to\\
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\frac{dx}{(1+|x|^2)^{(n+1)/2}}}} = \frac{\sigma_{n}}{2}.$$
+The surface element $d\sigma_{n-1}$ of the sphere $S^{n-1}$ on the space ${\mathbb{R}^{n}}$ is given by
+\begin{eqnarray*}
+ d\sigma_{n-1}& = &\sin^{n-2}\theta_{1}\;d\theta_{1}\;d\sigma_{n-2}\\
+& = &\sin^{n-2}\theta_{1}\;\sin^{n-3}\theta_{2}\cdots\sin\theta_{n-2}\;d\theta_{1}\;d\theta_{2}\cdots\;d\theta_{n-1}
+\end{eqnarray*}
+where, $0 \leq \theta_{k} < \pi$ for $1 \leq k \leq n-2$ and $0 \leq \theta_{n-1} < 2\pi$.\\
+The volume $\nu_{n}$ of the unit ball in $\mathbb{R}^{n}$ and the surface $\sigma_{n-1}$ are:\\
+$$\nu_{n} = \displaystyle{\int_{|x|\leq 1}{dx}} = \frac{\sigma_{n-1}}{n},$$
+$$\sigma_{n-1} = \displaystyle{\int_{S^{n-1}}{d\sigma_{n-1}}} = \frac{2\pi^{n/2}}{\Gamma[n/2]}.$$
+Now letting $r = |x|$, $\sigma_{n-1} = x/r$ (when $x\ne0$) and putting $r = \tan\theta$ we have\\
+\begin{eqnarray*}
+ \displaystyle{\int_{\mathbb{R}^{n}}{\frac{dx}{(1+|x|^2)^{(n+1)/2}}}}
+& = &\displaystyle{\int_{0}^{\infty}{\left(\displaystyle{\int_{S^{n-1}}{\frac{d\sigma_{n-1}}{(1+r^2)^{(n+1)/2}}}}\right)r^{n-1}dr}}\;\;[dx\;=\;r^{n-1}dr\;d\sigma_{n-1}]\\
+& = &\sigma_{n-1}\displaystyle{\int_{0}^{\infty}{\frac{r^{n-1}}{(1+r^2)^{(n+1)/2}}dr}}\\
+& = &\sigma_{n-1}\displaystyle{\int_{0}^{\pi/2}{\sin^{n-1}\theta d\theta}}\\
+& = &\frac{2\pi^{n/2}}{\Gamma[n/2]}.\frac{1}{2}B\left(\frac{n}{2},\frac{1}{2}\right)\;\;\;\;
+[\int_{0}^{\pi/2}{\sin^{n}\theta d\theta}\;=\;\frac{1}{2}B\left(\frac{n+1}{2},\frac{1}{2}\right)]\\
+& = &\frac{1}{2}.\frac{2\pi^{(n+1)/2}}{\Gamma[(n+1)/2]}\\
+& = &\frac{\sigma_{n}}{2}.
+\end{eqnarray*}
+\end{proof}
+\begin{thm}(Approximation to the Identity)
+ Suppose $\varphi \in L^1(\mathbb{R}^{n})$ with $\int_{\mathbb{R}^{n}}{\varphi(x) dx} = 1$ and for $\varepsilon > 0$
+let $\varphi_{\varepsilon}(x) = {\varepsilon}^{-n}\varphi(x/\varepsilon).$
+If $f \in L^p(\mathbb{R}^{n}), 1 \leq p < \infty,$ or $f \in C_{0} \subset L^{\infty}(\mathbb{R}^{n}),$
+then ${\Vert f*\varphi_{\varepsilon} - f \Vert}_{p} \rightarrow 0$ as $\varepsilon \rightarrow 0$.
+In particular, $u(x,\varepsilon) = \int_{\mathbb{R}^{n}}{f(t)P(x-t,\varepsilon)dt}$ and
+$s(x,\varepsilon) = \int_{\mathbb{R}^{n}}{f(t)W(x-t,\varepsilon)dt}$ converge to $f$ in the $L^p(\mathbb{R}^n)$-norm as $\varepsilon \rightarrow 0$.
+\end{thm}
+\begin{proof}
+ We have by change of variables,\\
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\varphi_{\varepsilon}(t)\;dt}} = \displaystyle{\int_{\mathbb{R}^{n}}{\varepsilon^{-n}\varphi(t/\varepsilon)\;dt}} =
+\displaystyle{\int_{\mathbb{R}^{n}}{\varphi(t)\;dt}} = 1.$$
+\begin{eqnarray*}\text{Hence,}\;\;
+ (f*\varphi_{\varepsilon})(x) - f(x)
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{f(x-t)\varphi_{\varepsilon}(t)\;dt}} - \displaystyle{\int_{\mathbb{R}^{n}}{f(x)\varphi_{\varepsilon}(t)\;dt}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{[f(x-t) - f(x)]\varphi_{\varepsilon}(t)\;dt}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{[f(x-t) - f(x)]\varepsilon^{-n}\varphi(t/\varepsilon)\;dt}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{[f(x-\varepsilon t) - f(x)]\varphi(t)\;dt}}.\\
+\end{eqnarray*}
+Now by Minkowski's inequality for integrals\\
+$${\Vert f*\varphi_{\varepsilon} - f \Vert}_{p} \leq \displaystyle{\int_{\mathbb{R}^{n}}{\left(\int_{\mathbb{R}^{n}}{|f(x-\varepsilon t)-f(x)|^{p}\;dx}\right)^{1/p}|\varphi(t)|\;dt}}.$$
+The expression $(\int_{\mathbb{R}^{n}}{|f(x+h)-f(x)|^{p}\;dx})^{1/p} = \omega_{p,f}(h) = \omega(h)$ is called $L^p(\mathbb{R}^n)$ modulus of continuty of $f$.
+Now by translation invariance of lebesgue measure and triangle inequality we have $\omega(h) \leq 2{\Vert f \Vert}_{p}$.
+Also, $\omega(h) \rightarrow 0$ as $|h| \rightarrow 0$. This is the case when $f$ is continuous and has compact support.
+The general case is obtained by approximating $f$ in the $L^p(\mathbb{R}^n)$-norm by such functions. Therefore we have shown that\\
+$${\Vert f*\varphi_{\varepsilon} - f \Vert}_{p} \leq \displaystyle{\int_{\mathbb{R}^{n}}{\omega(-\varepsilon t)|\varphi(t)|\;dt}}.$$
+Now by Lebesgue dominated convergence theorem, the integral on the right tends to $0$ as $\varepsilon \rightarrow 0$.
+Hence, ${\Vert f*\varphi_{\varepsilon} - f \Vert}_{p} \rightarrow 0$ as $\varepsilon \rightarrow 0$.
+\end{proof}
+\begin{cor}
+  Suppose $\varphi \in L^1(\mathbb{R}^{n})$ and  $\int_{\mathbb{R}^{n}}{\varphi(t) dt} = 0$
+then ${\Vert f*\varphi_{\varepsilon} \Vert}_{p} \rightarrow 0$ as $\varepsilon \rightarrow 0$
+whenever $f \in L^p(\mathbb{R}^{n}),\;1 \leq p < \infty,$ or $f \in C_{0} \subset L^{\infty}(\mathbb{R}^{n}).$
+\end{cor}
+\begin{proof}
+  We observe that
+\begin{eqnarray*}
+(f*\varphi_{\varepsilon})(x)& = &(f*\varphi_{\varepsilon})(x) - f(x).0\\
+& = &(f*\varphi_{\varepsilon})(x) - f(x)\int_{\mathbb{R}^{n}}{\varphi_{\varepsilon}(t) dt}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{[f(x-t) - f(x)]\varphi_{\varepsilon}(t)\;dt}}.
+\end{eqnarray*}
+Now the rest part follows from the above theorem.
+\end{proof}
+\begin{thm}
+ If $\Phi$ and its Fourier transform $\hat{\Phi} = \varphi$ are integrable and  $\int_{\mathbb{R}^{n}}{\varphi(x) dx} = 1$,
+then $\Phi$ means of the integral $\int_{\mathbb{R}^{n}}{\hat{f}(t)e^{2\pi it.x}\;dt}$ converge to $f(x)$ in the $L^1(\mathbb{R}^n)$-norm.
+In particular, the Able and Gauss means of this integral converge to $f(x)$ in the $L^1(\mathbb{R}^n)$-norm.
+\end{thm}
+\begin{proof}
+ Since, $f,\Phi \in L^1(\mathbb{R}^{n})$ and $\hat{\Phi} = \varphi$ then by theorem (2.1.24) $\Phi$ means of the integral $\int_{\mathbb{R}^{n}}{\hat{f}(t)e^{2\pi it.x}\;dt}$ is\\
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(t)e^{2\pi ix.t}\Phi(\varepsilon t)\;dt}} =
+\displaystyle{\int_{\mathbb{R}^{n}}{{f}(t)\varphi_{\varepsilon}(t-x)\;dt}} = f*\varphi_{\varepsilon}(x).$$
+Now since, $\varphi \in L^1(\mathbb{R}^{n})$ and $\int_{\mathbb{R}^{n}}{\varphi(x) dx} = 1$ then by theorem (2.1.26)
+we have ${\Vert f*\varphi_{\varepsilon} - f \Vert}_{1} \rightarrow 0$ as $\varepsilon \rightarrow 0$. This proves the theorem.
+\end{proof}
+\begin{cor}
+ If both $f$ and $\hat{f}$ are integrable then
+\begin{eqnarray*}\label{inv}
+f(x) = \int_{\mathbb{R}^{n}}{\hat{f}(t)e^{2\pi ix.t}\;dt},
+\end{eqnarray*}
+for almost every $x$.
+\end{cor}
+\begin{proof}
+  If $f$ and $\Phi \in  L^1(\mathbb{R}^{n})$ and $\hat{\Phi} = \varphi$ then\\
+$$\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(t)e^{2\pi ix.t}\Phi(\varepsilon t)\;dt}} = \displaystyle{\int_{\mathbb{R}^{n}}{{f}(t)\varphi_{\epsilon}(t-x)\;dt}}.$$
+Now taking limit both sides as $\varepsilon \rightarrow 0$, the integral on the left tends to $\int_{\mathbb{R}^{n}}{\hat{f}(t)e^{2\pi ix.t}\;dt}$
+and the integral on the right tends to $f$ by theorem (2.1.26). But from uniqueness of limit we have $f(x) = \int_{\mathbb{R}^{n}}{\hat{f}(t)e^{2\pi ix.t}\;dt}$,
+which is our desired result.
+\end{proof}
+\begin{cor}
+If $f_{1},f_{2} \in L^1(\mathbb{R}^{n})$ and $\hat{f_{1}}(x) =
+\hat{f_{2}}(x)$ for $x \in \mathbb{R}^{n}$ then $f_{1}(t) =
+f_{2}(t)$ for almost every $t \in \mathbb{R}^{n}$. In other words
+Fourier transform is one-one almost everywhere.
+\end{cor}
+\begin{proof}
+ It is clear from the theorem (2.1.26) that if $\hat{f} = 0\;\;\forall x$ then $f(t) = 0$ for almost every t. Taking $f = f_{1} - f_{2}$ we obtain our desired result.
+\end{proof} We refer to \cite{SW} for a detailed study on Fourier
+transforms on Euclidean spaces.

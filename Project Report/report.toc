@@ -1,0 +1,15 @@
+\contentsline {chapter}{List of notations}{v}{}%
+\contentsline {chapter}{List of Figures}{1}{}%
+\contentsline {chapter}{\numberline {1}Introduction to Signed digraph }{2}{}%
+\contentsline {section}{\numberline {1.1}Signed digraph}{2}{}%
+\contentsline {section}{\numberline {1.2}$\lambda $-consistency}{4}{}%
+\contentsline {chapter}{\numberline {2}Strictly Constant Trajectories}{8}{}%
+\contentsline {section}{\numberline {2.1}Strictly Constant Trajectories}{8}{}%
+\contentsline {chapter}{\numberline {3}Strictly Sinusoidal Trajectories}{13}{}%
+\contentsline {section}{\numberline {3.1}Strictly Sinusoidal Trajectories}{13}{}%
+\contentsline {chapter}{\numberline {4}Constant Trajectories}{18}{}%
+\contentsline {section}{\numberline {4.1}Introduction}{18}{}%
+\contentsline {section}{\numberline {4.2}Constant Trajectories and 0-coloring}{18}{}%
+\contentsline {chapter}{\numberline {5}Sinusoidal Trajectories}{26}{}%
+\contentsline {section}{\numberline {5.1}Sinusoidal Trajectories and Im-coloring}{26}{}%
+\contentsline {chapter}{Bibliography}{28}{}%

@@ -1,0 +1,264 @@
+\chapter{Plancherel Theorem and $L^2$ theory}
+\section{Hermite Functions and Plancherel Theorem}
+In this section we establish the Plancherel theorem for the Fourier transform using the density of Hermite functions in $L^2(\mathbb{R}^n)$.
+\begin{thm}
+ The system $\{h_{k}(x):k\in\mathbb{N}\}$ is an orthonormal basis for $L^2({\mathbb{R}}).$\\
+Consequently, every $f\in L^2({\mathbb{R}})$ has an expansion\\
+$$f(x) =\displaystyle{\sum_{k=0}^\infty\langle f,h_{k} \rangle h_{k}(x)}$$
+where the series converges to $f$ in the $L^2({\mathbb{R}})$-norm.
+\end{thm}
+\begin{proof}
+ To prove the completeness of the system $\{h_{k}(x):k\in\mathbb{N}\}$ we make use of Mehler's formula. If $f\in L^2({\mathbb{R}})$ is orthogonal to all $h_{k}$ then
+$\langle f,h_{k} \rangle =0,\;\forall\;k.$
+\begin{eqnarray*}\text{Now,}\;\;
+\langle f,h_{k} \rangle& = &\int{f(y)h_{k}(y)dy}\\
+& = &\int{f(y)h_{k}(x)h_{k}(y)dy}\\
+& = &\int{f(y)\frac{\tilde{h_{k}}(x)\tilde{h_{k}}(y)}{2^{k}k!}w^{k}dy}\\
+& = &\int{f(y)\left(\displaystyle{\sum_{k=0}^\infty\frac{\tilde{h_{k}}(x)\tilde{h_{k}}(y)}{2^{k}k!}w^{k}}\right)dy}\\
+& = &\int{e^{-\frac{1}{2}\frac{1+w^2}{1-w^2}(x^2+y^2)+\frac{2w}{1-w^2}xy}f(y)dy}.
+\end{eqnarray*}
+So $\displaystyle{\int{e^{-\frac{1}{2}\frac{1+w^2}{1-w^2}(x^2+y^2)+\frac{2w}{1-w^2}xy}f(y)dy} = 0}.$
+Since this is true for all $|w|<1,$ we take $w=-ir,0<r<1$ to get\\
+$$\int{e^{-\frac{1}{2}\frac{1-r^2}{1+r^2}y^2}.e^{-\frac{2r}{1+r^2}ixy}f(y)dy} =0.$$
+Thus the Fourier transform of the function $f(y)e^{-\frac{1}{2}\frac{1-r^2}{1+r^2}y^2}$ vanishes identically and hence by inversion formula of Fourier transform
+from chapter(2) corolarry$(2.1.29)$ we have $f=0.$
+\end{proof}
+\section{Hermite functions and Fourier transform}
+The other important property of Hermite functions which we will make use of in the definition of $L^2(\mathbb{R}^n)$ Fourier transform is given in the following proposition.
+\newpage
+\begin{prop}
+ The Hermite functions are eigenfunctions of the Fourier transform:\\
+$$\hat{h}_{k}(\xi) =(-i)^{k}h_{k}(\xi).$$
+\end{prop}
+\begin{proof}
+ We will prove this by induction.\\
+\begin{eqnarray}\text{Now,}\;\;
+\left(-\frac{d}{dx}+x\right)h_{k}(x)& = &\left(-\frac{d}{dx}+x\right)(2^{k}k!\sqrt{\pi})^{-\frac{1}{2}}\tilde{h}_{k}(x)\nonumber\\
+& = &(2^{k}k!\sqrt{\pi})^{-\frac{1}{2}}\tilde{h}_{k+1}(x)\nonumber\\
+& = &(2^{k}k!\sqrt{\pi})^{-\frac{1}{2}}(2^{k+1}(k+1)!\sqrt{\pi})^{\frac{1}{2}}h_{k+1}(x)\nonumber\\
+& = &(2k+2)^{\frac{1}{2}}h_{k+1}(x).
+ \end{eqnarray}
+By using the properties of Fourier transform, and taking smooth function $f$ we have
+\begin{eqnarray}
+(xf\hat{)~}(\xi) =i\;\frac{\partial}{\partial \xi}\hat{f}(\xi),\;(-\frac{d}{dx}f\hat{)~}(\xi) =-i\;\xi\;\hat{f}(\xi).
+\end{eqnarray}
+Taking Fourier transforms on both sides of $(3.1)$ and using the relations $(3.2)$ we have\\
+\begin{eqnarray*}
+(2k+2)^{\frac{1}{2}}\hat{h}_{k+1}(\xi)& = &{(-\frac{d}{dx}h_{k}\hat{)~}}(\xi)+{(xh_{k}\hat{)~}}(\xi)\\
+& = &-i\;\xi\;\hat{h}_{k}(\xi)+i\;\frac{\partial}{\partial \xi}\;\hat{h}_{k}(\xi)\\
+& = &-i\;\xi\;\hat{h}_{k}(\xi)+i\;\frac{d}{d\xi}\;\hat{h}_{k}(\xi)\\
+& = &-i\left(-\frac{d}{d\xi}+\xi\right)\hat{h}_{k}(\xi).\\
+\end{eqnarray*}
+\begin{eqnarray*}\text{Therefore,}\;\;
+ \hat{h}_{k+1}(\xi)& = &-i(2k+2)^{-\frac{1}{2}}\left(-\frac{d}{d\xi}+\xi\right)\hat{h}_{k}(\xi)\\
+& = &-i(2k+2)^{-\frac{1}{2}}\left(-\frac{d}{d\xi}+\xi\right)(-i)^{k}h_{k}(\xi).
+\end{eqnarray*}
+Now using the result $(3.5)$ we have\\
+$$\hat{h}_{k+1}(\xi) =(-i)^{k+1}h_{k+1}(\xi).$$
+Since $\hat{h}_{0}(\xi) =h_{0}(\xi),$ the result is proved.
+\end{proof}
+\begin{remark}
+ Using theorem $(1.1.10)$ one can prove the Plancherel formula as follows:\\ If the Hermite expansion of an $f\in L^2(\mathbb{R})$  and its Fourier
+transform are $f(x)=\displaystyle{\sum_{k=0}^{\infty}\langle f,h_{k} \rangle h_{k}(x)}$
+and $\hat{f}(x)=\displaystyle{\sum_{k=0}^{\infty}(-i)^k\langle f,h_{k} \rangle \hat{h}_{k}(x)}$ respectively, then the Plancherel theorem takes the form
+${\Vert f \Vert}^2_{2} = \displaystyle{\sum_{k=0}^{\infty}|\langle f,h_{k} \rangle|^2}$.
+\end{remark}
+\begin{remark}
+ As in the case of one dimensional Euclidean space $\mathbb{R}$, Hermite functions can be defined for $n$-dimensional Euclidean space ${\mathbb{R}}^{n}$.
+We define $n$-dimensional Hermite functions as follows:\\ Let $\alpha = (\alpha_1, \alpha_2,\cdots, \alpha_n) \in \mathbb{N}^{n}$ be the multiindex and
+$x\;\in{\mathbb{R}}^{n}$. Define $\Phi_{\alpha}(x)$ as the product of the one dimensional Hermite functions $h_{\alpha_{j}}$:\\
+$$\Phi_{\alpha}(x) =\displaystyle{\prod_{j=1}^{n}h_{\alpha_{j}}(x_{j})}.$$
+Then it can be shown that $\Phi_{\alpha}$ are eigenfunctions of the Hermite operator $H =-\Delta +|x|^{2}$ as well as Fourier transform. More precisely,\\
+$$\hat{\Phi}_{\alpha}(\xi) =(-i)^{|\alpha|}\Phi_{\alpha}(\xi),\;H\Phi_{\alpha}(x) =(2|{\alpha}|+n)\Phi_{\alpha}(x).$$
+where $|\alpha| =\alpha_{1}+\alpha_{2}+\cdots+\alpha_{n}.$ The operator $H$ can be written in the form\\
+$$H =\frac{1}{2}\displaystyle{\sum_{j=1}^{n}\left(A_{j}A^*_{j}+A^*_{j}A_{j}\right)}.$$
+where $A_{j} =-\frac{\partial}{\partial x_{j}}+x_{j},\;A^*_{j} =\frac{\partial}{\partial x_{j}}+x_{j}$
+and the lemma $(1.1.5)$ takes the form\\
+$$A_{j}\Phi_{\alpha} =(2\alpha_{j}+2)^{\frac{1}{2}}\Phi_{\alpha+e_{j}},\;A^*_{j}\Phi_{\alpha} =(2\alpha_{j})^{\frac{1}{2}}\Phi_{\alpha-e_{j}}.$$
+\end{remark}
+\begin{remark}$(a)$
+ The family $\{\Phi_{\alpha}:\alpha \in\mathbb{N}^{n}\}$ forms an orthonormal basis for $L^2(\mathbb{R}^{n})$. The Hermite expansion of an $f \in L^2(\mathbb{R}^{n})$ reads as\\
+$$f(x) =\displaystyle{\sum_{\alpha\in\mathbb{N}^{n}}\langle f,\Phi_{\alpha}\rangle\Phi_{\alpha}(x)}.$$
+and the Plancherel theorem takes the form\\
+$${\Vert f \Vert}^2_{2} =\displaystyle{\sum_{\alpha\in\mathbb{N}^{n}}|\langle f,\Phi_{\alpha}\rangle|^{2}}.$$
+$(b)$ Using the properties of Hermite functions we can define Fourier transforms of $L^2(\mathbb{R}^{n})$ functions. Any $f \in L^2(\mathbb{R}^{n})$ has
+the Hermite expansion defined above. By the orthonormality of $\Phi_{\alpha}$ it follows that the series\\
+$$\displaystyle{\sum_{\alpha\in\mathbb{N}^{n}}(-i)^{|\alpha|}\langle f,\Phi_{\alpha}\rangle\Phi_{\alpha}}$$
+converges to an $L^2(\mathbb{R}^{n})$ function that is defined to be the Fourier transform of $f$. Thus for $f \in L^2(\mathbb{R}^{n}),\;\hat{f}$ is defined by the expansion\\
+$$\hat{f} =\displaystyle{\sum_{\alpha\in\mathbb{N}^{n}}(-i)^{|\alpha|}\langle f,\Phi_{\alpha}\rangle\Phi_{\alpha}}.$$
+It is clear that ${\Vert f \Vert}_{2} = {\Vert\hat{ f }\Vert}_{2}$ and the $L^1(\mathbb{R}^{n})$ and $L^2(\mathbb{R}^{n})$
+definitions of the Fourier transform agree on finite linear combinations of Hermite functions. 
+\end{remark}
+
+%\chapter{Introduction}
+%\section{The $L^2$ Theory and the Plancherel Theorem}
+We know that the space $ L^1(\mathbb{R}^{n})\cap
+L^2(\mathbb{R}^{n})$ is dense in  $L^2(\mathbb{R}^{n})$. Here we extend the Fourier transform from the former space to latter.
+One of the nice properties of this extension is that it turns out to
+be a unitary linear transformation. \section{Plancherel Theorem : Revisiting}
+In this section we establish the Plancherel theorem for the Fourier transform using the density of $L^1\cap L^2(\mathbb{R}^n)$ in $L^2(\mathbb{R}^n)$.
+\begin{thm}
+ If $f \in L^1(\mathbb{R}^{n})\cap  L^2(\mathbb{R}^{n})$ then ${\Vert \hat{f} \Vert}_{2} = {\Vert f \Vert}_{2}.$
+\end{thm}
+\begin{proof}
+ Let  $g(x) = \overline{f(-x)}$. Then by theorem (2.1.7), $h = f*g \in L^1(\mathbb{R}^{n})$ and by theorem (2.1.9), we have $\hat{h} = \hat{f}\hat{g}$.
+But $\hat{g} = \bar{\hat{f}}$ and we have $\hat{h} = |\hat{f}|^2$. Now,\\
+\begin{eqnarray*}
+ {\Vert f \Vert}_{2}& = &\displaystyle{\int_{\mathbb{R}^{n}}{|f|^2\;dx}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{f(x)\overline{f(x)}\;dx}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{f(x)g(0 - x)\;dx}}\\
+& = &h(0).
+\end{eqnarray*}
+\begin{eqnarray*}\text{Again,}\;\;
+h(0)& = &\displaystyle{\lim_{\varepsilon\;\rightarrow\;0}{h*\varphi_{\varepsilon}(x)}}\;\;\;\text{[By\;\;theorem\;\;(2.1.26)]}\\
+& = &\displaystyle{\lim_{\varepsilon\;\rightarrow\;0}{\displaystyle{\int_{\mathbb{R}^{n}}{\hat{h}(x)\Phi(\varepsilon x)\;dx}}}}\;\;\;\text{[By\;\;theorem\;\;(2.1.24)]}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{\hat{h}(x)\;dx}}\;\;\;\text{[By\;\;Lebesgue\;dominated\;convergence\;theorem]}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{\hat{h}(x)\;dx}}\\
+& = &\displaystyle{\int_{\mathbb{R}^{n}}{|\hat{f}|^2\;dx}}\\
+& = &{\Vert \hat{f} \Vert}_{2}.
+\end{eqnarray*}
+So ${\Vert f \Vert}_{2} = {\Vert \hat{f} \Vert}_{2}$ for $f \in L^1(\mathbb{R}^{n})\cap  L^2(\mathbb{R}^{n}).$
+\end{proof}
+\begin{dfn}
+ This theorem indicates that the Fourier tranform is a bounded linear operator defined on the dense subset $ L^1(\mathbb{R}^{n})\cap  L^2(\mathbb{R}^{n})$ of $L^2(\mathbb{R}^{n})$.
+Infact it is an isometry. Therefore there exists a unique bounded extension,
+ $\mathscr{F}$ on the whole space $L^2(\mathbb{R}^{n}).$ Then $\mathscr{F}$ will be called the Fourier transform on $L^2(\mathbb{R}^n)$; we will use the notation $\hat{f} = \mathscr{F}f.$
+\end{dfn}
+\begin{remark}
+ If $f \in L^2(\mathbb{R}^{n})$, we can define the Fourier transform of $f$ as follows:\\
+Let $\{g_{k}(x)\} \subset L^1(\mathbb{R}^{n})\cap  L^2(\mathbb{R}^{n})$ such that
+$$g_{k}(x) =
+\left\{ \begin{array}{rcl}
+f(t)\;\;\;,\;\;\;|t|\leq k \\0\;\mbox{otherwise}.\;\end{array}\right.
+$$ Then $g_{k}(x) \rightarrow f$ in $L^2(\mathbb{R}^{n})$-norm. Now
+define $$\hat{f}(x) = \mathscr{F}f(t) = \displaystyle{\lim_{k
+\rightarrow \infty}{\hat{g}_{k}(x)}} = \displaystyle{\lim_{k
+\rightarrow \infty}{\int_{|t| \leq k}{f(t)e^{-2\pi ix.t}\;dt}}}.$$
+\end{remark}
+\begin{dfn}
+ A linear operator on $L^2(\mathbb{R}^{n})$ that is an isometry and maps onto $L^2(\mathbb{R}^{n})$ is called a unitary operator.
+\end{dfn}
+\begin{thm}
+(a)   The Fourier transform is a unitary operator on $L^2(\mathbb{R}^{n})$.
+(b)   The inverse of the Fourier transform $\mathscr{F}^{-1}$, can be obtained by letting $(\mathscr{F}^{-1}g)(x) = (\mathscr{F}\hat{g})(-x)$ for all $g \in L^2(\mathbb{R}^{n})$.
+\end{thm}
+\begin{proof}
+ (a)  For showing $\mathscr{F}$ is an unitary operator on $L^2(\mathbb{R}^{n})$ we will show $\mathscr{F}$ is an isometry and onto. Fourier transform is an isometry
+follows from the theorem (4.1.1).
+Now we will show  $\mathscr{F}$ is onto. Since  $\mathscr{F}$ is an isometry then its range  $\mathscr{F}(L^2(\mathbb{R}^{n}))$ say, $M$ is a closed subspace of $L^2(\mathbb{R}^{n})$.
+For ontoness
+it is enough to show $L^2(\mathbb{R}^{n}) = M$. We will prove it by contradiction.
+Suppose $L^2(\mathbb{R}^{n}) \neq M $. Then $L^2(\mathbb{R}^{n}) = M \oplus M^{\perp}$ and we could find a function $g \in M^{\perp}$ such that
+$\langle \hat{f},g \rangle = 0,\; \forall f \in M$. This implies $\displaystyle{\int_{\mathbb{R}^{n}}{\hat{f}(x)g(x)\;dx}} = 0$ with ${\Vert g \Vert}_{2} \neq 0$.
+Now by theorem (2.1.8) we have $\displaystyle{\int_{\mathbb{R}^{n}}{{f}(x)\hat{g}(x)\;dx}} = 0,\;\;\forall f \in L^2(\mathbb{R}^{n}) $. In particular, $f = \bar{\hat{g}}$.
+Then we have $\displaystyle{\int_{\mathbb{R}^{n}}{|\hat{g}(x)|^2\;dx}} = 0$. This implies $\hat{g}(x) = 0$ for
+almost every $x$, contradicting the fact that ${\Vert g \Vert}_{2} = {\Vert \hat{g} \Vert}_{2} \neq 0$. Therefore $L^2(\mathbb{R}^{n}) = M$.\\
+(b)\;\;\;\;Since $\mathscr{F}$ is an unitary operator, then it preserves the inner product: $\langle u,v \rangle = \int_{\mathbb{R}^{n}}{u\bar{v}\;dx}$.
+Let $g$ be any function in $L^1(\mathbb{R}^{n}) \cap L^2(\mathbb{R}^{n})$ and $f \in L^2(\mathbb{R}^{n})$.
+Since $\hat{f} \in L^2(\mathbb{R}^{n})$ then $\hat{f}_{B(0,k)} \in L^1(\mathbb{R}^{n}) \cap L^2(\mathbb{R}^{n})$ for each $k$. Hence,\\
+$$f_{k}(t) = {\int_{|x| \leq k}{\hat{f}(x)e^{2\pi it.x}\;dx}} = \mathscr{F}(\hat{f}_{B(0,k)})(-t) \in L^2(\mathbb{R}^n)$$
+converges to the function $\tilde{f} = \mathscr{F}(\hat{f})(-t) \in L^2(\mathbb{R}^n)$.
+For letting $\tilde{f} = {\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}\;dx}} = \displaystyle{\lim_{k \rightarrow \infty}{f_{k}(t),}}$ we have\begin{eqnarray*}
+\langle g,\tilde{f} \rangle& = &\displaystyle{\lim_{k \rightarrow \infty}{\langle g,f_{k} \rangle}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{\mathbb{R}^{n}}}{{g(t)\bar{f}_{k}(t)\;dt}}}}}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{\mathbb{R}^{n}}}{{g(t)\overline{\left({\int_{\mathbb{R}^{n}}{\hat{f}(x)e^{2\pi it.x}\;dx}}\right)}\;dt}}}}}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{\mathbb{R}^{n}}}{{g(t){\left({\int_{|x| \leq k}{\overline{\hat{f}(x)}e^{-2\pi it.x}\;dx}}\right)}\;dt}}}}}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{|x| \leq k}}{{\overline{\hat{f}(x)}{\left({\int_{\mathbb{R}^{n}}{g(t)e^{-2\pi it.x}\;dt}}\right)}\;dx}}}}}}\\
+& = &\displaystyle{\lim_{k \rightarrow \infty}{\displaystyle{{\int_{{|x| \leq k}}{{\overline{\hat{f}(x)}\hat{g}(x)\;dx}}}}}}\\
+& = &\langle \hat{g},\hat{f} \rangle\\
+%& = &\langle \mathscr{F}g,\mathscr{F}f \rangle\\
+& = &\langle g,f \rangle.
+\end{eqnarray*}
+Thus, we have $\tilde{f} = f$ which implies that  $(\mathscr{F}^{-1}f)(x) = (\mathscr{F}\hat{f})(-x)$.
+\end{proof}
+
+\section{An application of Plancherel theorem}
+
+     Let $c > 0$.
+     We use the Plancherel formula to compute the integral \\ \[\int\limits_{-\infty}^{\infty}{\frac{1}{c^2+y^2}dy}\].
+     
+     
+     
+\vspace*{0.2cm}By direct computation we note that the Fourier transform of the function 
+\[f(x) = \left\{
+  \begin{array}{cl}
+    {e^{-cx}} & \mbox{if }x\geq0,\\
+    0 & \mbox{if } x < 0.
+  \end{array}
+\right.
+\]\\[0.2cm]
+is $\dfrac{1}{c+\iota y}$.\\[1cm]
+The Plancherel formula says that
+
+$$ \Vert \hat{f}\Vert_2^2 ~= ~2\pi\Vert f\Vert_2^2$$
+$$\int\limits_{-\infty}^{\infty}{\vert \hat{f}\vert^2 dy}~ =~ 2\pi\int\limits_{0}^{\infty}{\vert {f}\vert^2 dx}$$
+$$\int\limits_{-\infty}^{\infty}{\frac{1}{\vert{c+\iota y}\vert^2}dy} ~= ~\int\limits_{0}^{\infty}{e^{-2cx}dx}$$
+$$\int\limits_{-\infty}^{\infty}{\frac{1}{c^2+y^2}dy} ~= ~  \frac{-1}{2c} e^{-2cx}|_{0}^{\infty}~=~\frac{\pi}{c}.$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ %Since we have defined the Fourier transform for functions in $L^1(\mathbb{R}^{n})$ and functions in $L^2(\mathbb{R}^{n})$
+%we can define it on the class $L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$
+%consisting of all the functions $f = f_{1} + f_{2}$ with $f_{1} \in L^1(\mathbb{R}^{n})$
+%and $f_{2} \in L^2(\mathbb{R}^{n})$. We do this by letting $(f_{1} + f_{2}\hat{)~} = \hat{f}_{1} + \hat{f}_{2}$.
+%If $g_{1} + g_{2} = f_{1} + f_{2}$ with $g_{i} \in L^i(\mathbb{R}^{n}), i = 1,2,$ then $g_{1} - f_{1} = f_{2} - g_{2} \in L^1(\mathbb{R}^n) \cap L^2(\mathbb{R}^n)$.
+%Since the two definitions of the Fourier transform
+%coincide on $L^1(\mathbb{R}^n) \cap L^2(\mathbb{R}^n)$ we have $\hat{g}_{1} - \hat{f}_{1} = \hat{f}_{2} - \hat{g}_{2}$.
+%Thus $\hat{f}_{1} + \hat{f}_{2} = \hat{g}_{1} + \hat{g}_{2}$. This shows that the Fourier transform is
+%well-defined on $L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$. Using the above argument we can extend the definition of Fourier transform to $L^p(\mathbb{R}^{n})$ for $1 < p <2$.
+%We will show that $L^p(\mathbb{R}^{n}) \subseteq L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$.
+%\begin{res}
+% $L^p(\mathbb{R}^{n}) \subseteq L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$ for $1 < p \leq 2$.
+%\end{res}
+%\begin{proof}
+% Any $f \in L^p(\mathbb{R}^{n})$ can be written as $f_{1} + f_{2}$ where, $f_{1} \in L^1(\mathbb{R}^{n})$ and $f_{2} \in L^2(\mathbb{R}^{n})$. So by using the above argument
+%we can define the Fourier transform for any $L^p(\mathbb{R}^{n})$ function where $1 < p \leq 2$. Now we will show that
+%$L^p(\mathbb{R}^{n}) \subseteq L^1(\mathbb{R}^{n}) + L^2(\mathbb{R}^{n})$. Let $f \in L^p(\mathbb{R}^{n})$. Define,
+%\begin{equation*}
+% f_{1}(x) =
+%\left\{ \begin{array}{l l}
+%f(x), & \quad |f(x)| > 1, \\
+% 0,      & \quad \text{otherwise}. \\
+%         \end{array}\right.
+%\end{equation*}
+%\begin{equation*}
+% f_{2}(x) =
+%\left\{ \begin{array}{l l}
+%f(x), & \quad |f(x)| < 1, \\
+% 0,      & \quad \text{otherwise}. \\
+%         \end{array}\right.
+%\end{equation*}
+%Since,\;\;\;$p > 1, |f(x)| > 1$ then  $|f(x)|^p > |f(x)|$. Now
+%\begin{eqnarray*}
+% \displaystyle{\int{|f_1(x)|dx}}& = &\displaystyle{\int_{|f(x)| > 1}{|f(x)|dx}}\\
+%& \leq &\displaystyle{\int{|f(x)|^pdx} < \infty.}
+%\end{eqnarray*}
+% So $f_{1} \in L^1(\mathbb{R}^{n})$.\\
+%Similary\;\;\;since,\;\;\;$p < 2, |f(x)| < 1$ then  $|f(x)|^2 < |f(x)|^p$. Now
+%\begin{eqnarray*}
+% \displaystyle{\int{|f_2(x)|dx}}& = &\displaystyle{\int_{|f(x)| < 1}{|f(x)|^2dx}}\\
+%& \leq &\displaystyle{\int{|f(x)|^pdx} < \infty.}
+%\end{eqnarray*}
+%So $f_{2} \in L^2(\mathbb{R}^{n})$.
+%\end{proof}
+

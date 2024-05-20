@@ -1,0 +1,153 @@
+\documentclass[12pt,a4wide]{report}
+
+\usepackage{amsthm,amssymb,mathrsfs,setspace,pstricks,amsmath,tikz}%amsmath,%pstcol latexsym,footmisc
+
+\usepackage{play}
+\usepackage{epsfig}
+%\usepackage[grey,times]{quotchap}
+\usepackage[nottoc]{tocbibind}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+%
+
+\input xy
+%\xyoption{all}
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{notation}[thm]{Notation}
+
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{res}[thm]{Result}
+\renewcommand{\baselinestretch}{1.3}
+
+
+
+
+\begin{document}
+
+%\pagenumbering{arabic} \setcounter{page}{1}
+
+% --------------- Title page -----------------------
+
+\begin{titlepage}
+\enlargethispage{2cm}
+
+\begin{center}
+
+\vspace*{-1cm}
+
+\textbf{\Large EIGENVALUES OF MATRICES WITH TREE GRAPHS}\\[10pt]
+
+\vspace*{2cm}
+
+A Project Report Submitted \\
+for the Course \\[1cm]
+
+{\bf\Large\ MA699 Project}\\[.1in]
+
+\vspace*{1cm}
+
+{\large \emph{by}}\\[.5in]
+{\large\bf {Himanshu Prajapati}}\\[5pt]
+{\large (Roll No. 222123026)}\\[.55in]
+
+\vfill
+\includegraphics[height=3cm]{iitg_logo.eps}
+
+\vspace*{0.5cm}
+
+{\em\large to the}\\[10pt]
+{\bf\large DEPARTMENT OF MATHEMATICS} \\[5pt]
+{\bf\large \mbox{INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI}}\\[5pt]
+{\bf\large GUWAHATI - 781039, INDIA}\\[10pt]
+{\it\large April 2024}
+\end{center}
+
+\end{titlepage}
+
+\clearpage
+
+% --------------- Certificate page -----------------------
+\pagenumbering{roman} \setcounter{page}{2}
+\begin{center}
+{\Large{\bf{CERTIFICATE}}}
+\end{center}
+%\thispagestyle{empty}
+
+
+\noindent
+This is to certify that the work contained in this report
+entitled {\textbf{``Eigenvalues of Matrices with Tree Graphs"}} submitted by \textbf{Himanshu Prajapati} (\textbf{Roll No: 222123026}) to Department of Mathematics, Indian Institute of Technology
+Guwahati towards the requirement of the course \textbf{MA699 Project}
+has been carried out by him under my
+supervision.
+
+\vspace{4cm}
+
+\noindent Guwahati - 781 039 \hfill (Dr. Sriparna Bandopadhyay)
+
+\noindent April  2024 \hfill Project Supervisor
+
+\clearpage
+
+% --------------- Abstract page -----------------------
+\begin{center}
+{\Large{\bf{ABSTRACT}}}
+\end{center}
+
+
+The main aim of the project is to study signed digraph and undirected graph of a real square matrix forms a tree or forest structure, we have developed a series of finite, computable methods that provide detailed insights into the sizes and the repeated occurrences of the eigenvalues of the matrix. By using these methods on system designs that are represented as signed directed graphs, we can effectively ensure that these systems are controllable within the framework of linear dynamics.
+
+\clearpage
+
+
+
+\tableofcontents
+\clearpage
+%\listoffigures
+%\listoftables
+\chapter*{\centerline{List of notations}}
+\addcontentsline{toc}{chapter}{List of notations}
+\input{notation}
+\pagebreak
+\listoffigures  % This command generates the list of figures
+
+
+
+
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% =========== Main chapters starts here. Type in separate files and include the filename here. ==
+% ============================
+
+\input chapter1.tex
+
+\input chapter2.tex
+
+\input{chapter3.tex}
+
+\input{chapter4.tex}
+
+\input{chapter5.tex}
+
+%\input{Appendix.tex}
+
+
+ \nocite{JEFFRIES1988109} \nocite{JEFFRIES19871}
+
+\bibliographystyle{plain}
+\bibliography{bib}
+
+\end{document}
